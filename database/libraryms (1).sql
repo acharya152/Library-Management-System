@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 20, 2022 at 09:18 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: 127.0.0.1
+-- Generation Time: Oct 21, 2022 at 06:07 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,6 +32,27 @@ CREATE TABLE `books_barcode` (
   `barcode` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `books_barcode`
+--
+
+INSERT INTO `books_barcode` (`bid`, `barcode`) VALUES
+(9789937890090, 97899378900901),
+(9789937890090, 97899378900902),
+(9789937890090, 97899378900903),
+(9789937890090, 97899378900904),
+(9789937890090, 97899378900905),
+(9789937890090, 97899378900906),
+(9789937890090, 97899378900907),
+(9789937890090, 97899378900908),
+(9789937890090, 97899378900909),
+(9789937890090, 978993789009010),
+(9789937890090, 978993789009011),
+(9789937890090, 978993789009012),
+(9789937890090, 978993789009013),
+(9789937890090, 978993789009014),
+(9789937890090, 978993789009015);
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +65,13 @@ CREATE TABLE `books_data` (
   `autname` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `books_data`
+--
+
+INSERT INTO `books_data` (`bid`, `bname`, `autname`) VALUES
+(9789937890090, 'Rajniti', 'rameshnath');
+
 -- --------------------------------------------------------
 
 --
@@ -55,6 +83,13 @@ CREATE TABLE `books_inventory` (
   `noBooks` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `books_inventory`
+--
+
+INSERT INTO `books_inventory` (`bid`, `noBooks`) VALUES
+(9789937890090, 15);
+
 -- --------------------------------------------------------
 
 --
@@ -65,6 +100,13 @@ CREATE TABLE `borrowedbook_data` (
   `sid` bigint(20) DEFAULT NULL,
   `barcode` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `borrowedbook_data`
+--
+
+INSERT INTO `borrowedbook_data` (`sid`, `barcode`) VALUES
+(20120038, 97899378900901);
 
 -- --------------------------------------------------------
 
@@ -105,8 +147,8 @@ CREATE TABLE `student_data` (
 --
 
 INSERT INTO `student_data` (`Sid`, `Name`, `Contact`, `Year`, `Depart`) VALUES
-(20120038, 'Pranav Acharya', 9869006865, '2nd year/4th sem', 'IT'),
-(20120078, 'Yunil Poudel', 9867546758, '2nd year/4th sem', 'IT');
+(20120038, 'Pranav Acharya', 9869006865, '3rd year/ 5th semester', 'it'),
+(20120076, 'Yunil Raj Poudel', 9869006866, '3rd year/ 5th semester', 'it');
 
 -- --------------------------------------------------------
 
@@ -138,8 +180,7 @@ CREATE TABLE `teacher_data` (
 --
 
 INSERT INTO `teacher_data` (`tid`, `Name`, `Contact`, `Subject`, `Department`) VALUES
-(20120058, 'Anuj Ghimire', 9876567876, 'MFCS', 'IT'),
-(20120068, 'Lali manandar', 9855555555, 'dbms', 'it');
+(28645564, 'Anuj Ghimire', 9869006867, 'MFCS', 'it');
 
 --
 -- Indexes for dumped tables
