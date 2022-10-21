@@ -1,0 +1,124 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	
+}
+#dashbody{
+	background-image: url("bg9.jpg");
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	
+}
+#dashboardpanel{
+	background-color:#dde8ed;
+	height: 10%;
+	width: 100%;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+.lgnout{
+
+	display: flex;
+	align-items: center;
+	height: 70%;
+background-color: #414e66;
+margin-right: 1%;
+	padding-right: 1%;
+	padding-left: 1%;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-style: bold;
+	border-radius: 20px;
+
+}
+
+
+a:link { text-decoration: none;
+ }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none;
+ }
+
+
+a:active { text-decoration: none; }
+
+a{
+	color: white;
+
+}
+.admnname{
+	
+	height: 90%;
+	width: 15%;
+	text-align: center;
+	margin-right: 2%;
+	border-radius: 20px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 120%;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	color: #665941;
+	padding-right: 1%;
+}
+img{
+	border-radius: 70%;
+	height: 70%;
+	margin-right: 7%;
+	position: relative;
+
+}
+
+.logo{
+	height: 450%;
+	position: relative;
+	top: 70%;
+	right: 60.8%;
+}
+
+#addNewFeature{
+    /* border:1px solid black; */
+    font-size: 35px;
+    color: #414e66;
+    padding-top: 15%;
+    padding-left: 35%;
+    height: 100%;
+   ;
+
+
+}
+.dshboard{
+
+	display: flex;
+	align-items: center;
+	height: 70%;
+background-color: indianred;
+margin-right: 1%;
+	padding-right: 1%;
+	padding-left: 1%;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-style: bold;
+	border-radius: 20px;
+
+}
+
+#input{
+	position: absolute;
+	right: 60%;
+	top: 20%;
+}

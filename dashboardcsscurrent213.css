@@ -1,0 +1,253 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	
+}
+#dashbody{
+	background-image: url("bg9.jpg");
+
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	height: 100%;
+	
+}
+#dashboardpanel{
+	background-color:#dde8ed;
+	height: 10%;
+	width: 100%;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+
+	
+	
+	
+	
+	
+
+}
+/*#sidepanel{
+	background-color:#414e66;
+	width: 20%;
+	height: 100%;
+	position: absolute;
+	top: 0%;
+
+}*/
+.lgnout{
+
+	display: flex;
+	align-items: center;
+	height: 7vh;
+background-color: #414e66;
+	margin-right: 1vw;
+	padding-right: 1vw;
+	padding-left: 1vw;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	border-radius: 20px;
+	font-size: 1.2vw;
+
+}
+
+a:link { text-decoration: none;
+ }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none;
+ }
+
+
+a:active { text-decoration: none; }
+
+a{
+	color: white;
+
+}
+.admnname{
+	
+	height: 90%;
+	width: 15%;
+	text-align: center;
+	margin-right: 2%;
+	border-radius: 20px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 1.5vw;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	color: #665941;
+	padding-right: 1%;
+}
+img{
+	border-radius: 70%;
+	height: 70%;
+	margin-right: 7%;
+	position: relative;
+
+}
+
+.logo{
+	position: relative;
+	height: 450%;
+	top: 7vh;
+	right: 61vw;
+	z-index: 2;
+}
+.bookdetails{
+	background-color: #414e66;
+	width: 25vw;
+	border-radius: 20px;
+
+
+	
+}
+.feature2{
+	background-color: #414e66;
+	width: 25vw;
+	border-radius: 20px;
+	
+	
+}
+.feature3{
+	background-color: #414e66;
+	width: 25vw;
+	border-radius: 20px;
+	
+	
+}
+
+#main_body{
+	display: flex;
+	justify-content: space-around;
+	height: 32vh;
+	position: relative;
+	top: 10%;
+	
+
+
+}
+#main_body2{
+	display: flex;
+	justify-content: space-around;
+	height: 32vh;
+	position: relative;
+	top: 20%;
+	
+
+
+}
+/*#main_body3{
+	display: flex;
+	justify-content: space-around;
+	height: 10%;
+	position: relative;
+	top: 27%;
+	
+
+
+}*/
+
+.t1{
+	color: white;
+
+	font-size: 2.2vw;
+	text-align: center;
+	margin: 5%;
+	 font-family:Impact;
+	 
+
+}
+/*.btn1{
+	text-align: center;
+	margin-top: 50%;
+	background-color: yellowgreen;
+	height: 20%;
+	width: 60%;
+	margin-left: 20%;
+	border-radius: 20px;
+	color: white;
+	font-family:"Impact" ;
+	font-size: 150%;
+	z-index: 1;
+
+
+}*/
+/*#click{
+	padding: 10%;
+}*/
+
+.btn1{
+	background-color: yellowgreen;
+	text-align: center;
+	position: relative;
+	top: 23%;
+	height: 10vh;
+	width: 12vw;
+	left: 6.5vw;
+	border-radius: 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#click{
+		font-family: "Impact";
+	font-size: 1.7vw;
+	color: white;
+}
+
+
+
+.btn2{
+	background-color: yellowgreen;
+	text-align: center;
+	position: relative;
+	top: 23%;
+	height: 10vh;
+	width: 12vw;
+	left: 6.5vw;
+	border-radius: 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#click2{
+		font-family: "Impact";
+	font-size: 1.7vw;
+	color: white;
+}
+.bk1{
+	position: absolute;
+	height: 40%;
+	top: 32%;
+	left: 79%;
+}
+.bk2{
+	position: absolute;
+	height: 45%;
+	top: 30%;
+	left: 45%;
+}
+.bk3{
+	position: absolute;
+	height: 12vh;
+	top: 7vh;
+	left: 14vw;
+}

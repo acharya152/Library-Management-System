@@ -1,0 +1,108 @@
+.maindiv{
+  position: absolute;
+  justify-content: center;
+}
+form {
+/*border: 3px solid whitesmoke;*/
+position: absolute;
+width: 500px;
+  height: 300px;
+  top: 25%;
+  left: 30%;
+
+  padding-top: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: -15px 15px 10px black;
+  
+}
+
+
+
+.sign{
+
+text-align: center;
+height: 50px;
+position: relative;
+top: 15px;
+}
+.input{
+  position: relative;
+top: 25px;
+}
+.rectangle {
+  height: 3px;
+  width: 200px;
+  background-color: #292B4B;
+  position: relative;
+  top: -7px;
+  left: 135px;
+}
+
+div p{
+  font-size: 18px;
+  font-family: Tahoma, Verdana, sans-serif;
+  
+}
+
+input {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 12%;
+  display: inline-block;
+  /*border: 1px solid dimgrey;*/
+  box-sizing: border-box;
+  background-color: #dddddd;
+  border: 0;
+  border-radius: 20px;
+  text-align: center;
+}
+
+
+.btn1 {
+  background-color: #292B4B;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 34%;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  border-radius: 20px;
+
+
+}
+.pic{
+  opacity: 0.8;
+  height: 1px;
+   position: absolute;
+  top: 75px;
+  right: 30px;
+}
+
+
+
+button:hover {
+  opacity: 0.8;
+}
+
+.form {
+  padding: 16px;
+   }
+
+body{
+ /* background-color: #414e66;*/
+ background-image: url("bg1.jpg");
+ background-size:cover;
+
+}
+#hi{
+  border: 2px;
+}
+.div1{
+ color: red;
+  position: absolute;
+  top: 37%;
+  left: 25%;
+}
+
+
