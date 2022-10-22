@@ -26,7 +26,7 @@ include("unsetBookSessions.php");
 
 					}
 					function func2(){
-						location.href="comingSoon.php";
+						location.href="insertrecteacher.php";
 						// location.href="insertrecteacher.php";
 
 

@@ -5,6 +5,7 @@
 
  	}
 	include("unsetBookSessions.php");
+	unset($_SESSION['tid']);
  	
 	
  ?>

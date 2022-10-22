@@ -1,49 +1,14 @@
 <?php 
- 	session_start();
- 	if(!isset($_SESSION['logged'])){
+	session_start();
+	if(!isset($_SESSION['logged'])){
  		header("Location:./loginform.php");
 
  	}
-include("./unsetBookSessions.php");
+	include("unsetBookSessions.php");
+	unset($_SESSION['sid']);
  	
- 	// include("StudentDetails.php");
- 	// session_start();
-	 	if(!isset($_SESSION['logged'])){
-	 		header("Location:./loginform.php");
-	 	}
- 				else{
-
-					$host="localhost";
-					$user="root";
-					$password="";
-					$db="libraryms";
-
-
-					$con=mysqli_connect($host,$user,$password,$db);
-					if(!$con){
-					echo "Not connected".mysqli_connect_error();
-					}
-					else{
-						if(isset($_POST['SearchId'])){
-							$teacherid=$_POST['SearchId'];
-							
-							$sql="select * from teacher_data where tid='".$teacherid."'";
-							$checkindb=mysqli_query($con,$sql);
-						  if(mysqli_num_rows($checkindb)==1){
-						  	$rows=mysqli_fetch_assoc($checkindb);
-						  	
-						  	$sName=$rows["Name"];
-						  	$_SESSION['teachername']=$sName;
-						  	$_SESSION['Teachercontact']=$rows["Contact"];
-						  	$_SESSION['subject']=$rows["Subject"];
-						  	$_SESSION['Teacherdepartment']=$rows["Department"];
-							}
-						}
-					}
-				}
-
- ?> 
-
+	
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,9 +16,17 @@ include("./unsetBookSessions.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="insertrec.css">
 	<title></title>
+	<!-- to set focus on searchpanel despite clicking anywhere on the screen -->
+		<script type="text/javascript">
+				function fun2(){
+						document.getElementById("inpts1").focus();
+				}
+
+
+					</script>
 </head>
 <body>
-	<div id="dashbody">
+	<div id="dashbody" onclick="fun2()">
 		<div id="dashboardpanel">
 							<div class="logo">
 									<img src="MOCCA4.png">
@@ -83,68 +56,107 @@ include("./unsetBookSessions.php");
 
 			<div id="searchPanel">
 				<label id="label1">Teacher ID:</label>
-				<form method="POST" action="#" >
+				<form method="POST" action="insertrecteacherBackend.php" >
 					
 				
-				<input type="text" name="SearchId" class="inpt1" placeholder="ENTER YOUR TEACHER ID" required >
+				<input type="text" name="SearchId" class="inpt1" id="inpts1" placeholder="ENTER TEACHER ID" required >
 				<input type="submit" value="Search" class="inpt2">
 				<!-- Validate search data and clear session for invalid input -->
 
 				</form>
+
+					<!-- to pass control to search box -->
+					<script type="text/javascript">
+				window.onload=function fun1(){
+						document.getElementById("inpts1").focus();
+				}
+
+
+					</script>
 			</div>
 
-				
+			<div id="displayErrorBox">
+				*Please enter a valid TeacherID
+			</div>
+			<?php 
+				if(isset($_SESSION['errorMsg'])){
+					echo "<script src='showErrorBox.js'></script>";
+					include("unsetTeacherStudentSessions.php");
+				}
+			?>
+
+			
 				<!-- unset session variables after viewing records -->
+
+
+
+
+			
 			<div id="studentdisplaybox">
 							<div class="namediv">
 							<label>Name:</label>
-							<?php if(isset($_SESSION['teachername'])){
+							<label>
+								
+							<?php if(isset($_SESSION['studentname'])){
 
-							echo	$_SESSION['teachername'];
+							echo $_SESSION['studentname'];
 ;
+
 							} ?>
+							</label>
+							
 							</div>
 				<br>
 							<div class="contactdiv">
 							<label>Contact:</label>
-							<?php if(isset($_SESSION['Teachercontact'])){
+							<?php if(isset($_SESSION['contact'])){
 
-							echo	$_SESSION['Teachercontact'];
+							echo $_SESSION['contact'];
 ;
 							} ?>
 							</div>
 				<br>
 							<div class="yeardiv">
 							<label>Subject:</label>
-							<?php if(isset($_SESSION['subject'])){
+							<?php if(isset($_SESSION['Subject'])){
 
-							echo $_SESSION['subject'];
+							echo $_SESSION['Subject'];
 ;
 							} ?>
 							</div>
 				<br>
 							<div class="deptdiv">
 							<label>Department:</label>
-							<?php if(isset($_SESSION['Teacherdepartment'])){
+							<?php if(isset($_SESSION['department'])){
 
-							echo		$_SESSION['Teacherdepartment'];
+							echo $_SESSION['department'];
 ;
 							} ?>
 							</div>
 				<br>
 			</div>
-			<div class="issuebutton">
+
+
+			<div  id="issuebutton">
 
 				<a href="./issuebook.php" class="issuebtn">
 									<b>Issue New Book</b>
 								</a>
 			</div>
-			<div class="viewbutton">
-				<a href="./borrowedbook.php" class="viewbtn">
+			<div  id="viewbutton">
+				<a href="./comingSoon.php" class="viewbtn">
+				<!-- <a href="./borrowedbook.php" class="viewbtn"> -->
 									<b>Borrowed Books</b>
 								</a>
 
 			</div>
+			<?php
+					if(!isset($_SESSION['tid'])){
+						echo "<script src='hideStudentDisplayBox.js'></script>";
+
+					}
+
+				?>
 		</div>
 
 

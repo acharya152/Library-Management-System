@@ -13,7 +13,7 @@
 
 						unset($_SESSION['teachername']);
 						unset($_SESSION['Teachercontact']);
-						unset($_SESSION['subject']);
+						unset($_SESSION['Subject']);
 						unset($_SESSION['Teacherdepartment']);
 
 						//error sessions

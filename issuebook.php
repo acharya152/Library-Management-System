@@ -4,9 +4,9 @@ if(!isset($_SESSION['logged'])){
  		header("Location:./loginform.php");
 
  	}
-	elseif(!isset($_SESSION['sid'])){
-		header("Location:insertrec.php");
-	}
+	// elseif(!isset($_SESSION['sid'])){
+	// 	header("Location:insertrec.php");
+	// }
 	 
 ?>
 
@@ -51,9 +51,11 @@ if(!isset($_SESSION['logged'])){
 			
 		</div>
 		<div id="showSelectedStudent">
-			<a href="insertrec.php">
-				Student: <?php echo $_SESSION['sid']."_ ".$_SESSION['studentname'] ?>
-			</a>
+				Member: <?php if(isset($_SESSION['sid'])){
+					echo $_SESSION['sid']."_ ".$_SESSION['studentname'];
+				}else{
+					echo $_SESSION['tid']."_ ".$_SESSION['studentname'];
+				} ?>
 		</div>
 		<div id="main_body">
 			

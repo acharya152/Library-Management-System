@@ -28,15 +28,28 @@ error_reporting(E_ALL);
 
 						$barcode = $_SESSION['barcode'];
 
-						$sql = "select * from borrowedbook_data where barcode='".$barcode."'";
-						$checkindb=mysqli_query($con,$sql);
+						
+							$sql1 = "select * from borrowedbook_data where barcode='".$barcode."'";
+							$sql2 = "select * from teacherborrowedbook_data where barcode='".$barcode."'";
+							$checkindb1=mysqli_query($con,$sql1);
+							$checkindb2=mysqli_query($con,$sql2);
+
 						// var_dump($checkindb);S
-							if(mysqli_num_rows($checkindb)==1){
+							if((mysqli_num_rows($checkindb1)==1)||(mysqli_num_rows($checkindb2)==1)){
 								$_SESSION['dberror']="Books already issued to another member please try another book";
 
 							}else{
-								$sid = $_SESSION['sid'];
-								$query = "insert into borrowedbook_data values('$sid','$barcode')";
+							//checking if issuing to teacher or student
+									if(isset($_SESSION['sid'])){
+
+										
+										$sid = $_SESSION['sid'];
+										$query = "insert into borrowedbook_data values('$sid','$barcode')";
+									}elseif(isset($_SESSION['tid'])){
+										$sid = $_SESSION['tid'];
+										$query = "insert into teacherborrowedbook_data values('$sid','$barcode')";
+
+									}
 								// var_dump($query);
 								
 								try{
