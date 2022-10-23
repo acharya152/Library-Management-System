@@ -144,7 +144,7 @@
 								</a>
 			</div>
 			<div  id="viewbutton">
-				<a href="./comingSoon.php" class="viewbtn">
+				<a href="./viewborrowedbooks.php" class="viewbtn">
 				<!-- <a href="./borrowedbook.php" class="viewbtn"> -->
 									<b>Borrowed Books</b>
 								</a>

@@ -88,8 +88,8 @@
 						<input type="text" name="sub" id="bname1" required><br>
 						<label>Department:</label>
 						<!-- <input type="text" name="dept" id="bname2" required><br> -->
-						<select id="bname2" name="dept" >
-							<option selected disabled>Choose Department</option>
+						<select id="bname2" name="dept" required>
+							<option value="" selected disabled>Choose Department</option>
 							<option value="computer">Computer</option>
 							<option value="it">IT</option>
 							<option value="civil">Civil</option>

@@ -42,9 +42,19 @@ error_reporting(E_ALL);
 							//checking if issuing to teacher or student
 									if(isset($_SESSION['sid'])){
 
-										
+										$days=$_POST['timeframe'];
 										$sid = $_SESSION['sid'];
-										$query = "insert into borrowedbook_data values('$sid','$barcode')";
+										$date =getdate();
+										$datetoday = $date['year']."-".$date['mon']."-".$date['mday'];
+		// echo($datetoday);
+		
+											$date1= date_create($datetoday);
+											date_add($date1,date_interval_create_from_date_string($days));
+											$duedate=date_format($date1,"Y-m-d");
+
+
+
+										$query = "insert into borrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate')";
 									}elseif(isset($_SESSION['tid'])){
 										$sid = $_SESSION['tid'];
 										$query = "insert into teacherborrowedbook_data values('$sid','$barcode')";

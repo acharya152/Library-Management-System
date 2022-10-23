@@ -51,7 +51,7 @@
  </script>
  <script type="text/javascript">
 				function fun2(){
-						document.getElementById("bid").focus();
+						// document.getElementById("bid").focus();
 				}
 
 

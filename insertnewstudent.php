@@ -86,15 +86,16 @@
 						<input type="text" name="contact" id="bname1" required><br>
 						<label>Department:</label>
 						<!-- <input type="text" name="dept" id="bname2" required><br> -->
-						<select id="bname2" name="dept" >
-							<option selected disabled>Choose Department</option>
+						<select id="bname2" name="dept" required>
+							<option value="" selected disabled>Choose Department</option>
 							<option value="computer">Computer</option>
 							<option value="it">IT</option>
 							<option value="civil">Civil</option>
 					</select>
 						<label>Year:</label>
-						<select id="bname2" name="year" >
-							<option selected disabled>Choose year and semester</option>
+						<select id="bname2" name="year" required>
+							<!-- <option selected disabled>Choose year and semester</option> -->
+							<option value="" selected disabled>Choose year and semester</option>
 							<option value="1st year/ 1st semester">1st year/ 1st semester</option>
 							<option value="1st year/ 2nd semester">1st year/ 2nd semester</option>
 							<option value="2nd year/ 3rd semester">2nd year/ 3rd semester</option>

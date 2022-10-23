@@ -19,9 +19,9 @@ if(!isset($_SESSION['logged'])){
 	<title></title>
 	<!-- to set focus on searchpanel despite clicking anywhere on the screen -->
 		<script type="text/javascript">
-				function fun2(){
-						document.getElementById("inpts1").focus();
-				}
+				// function fun2(){
+				// 		document.getElementById("inpts1").focus();
+				// }
 		</script>
 	
 </head>
@@ -139,6 +139,17 @@ if(!isset($_SESSION['logged'])){
 ;
 							} ?>
 							</div>
+<form method="POST" action="issuebookBackend.php">
+							<div class="yeardiv2">
+								<label>Borrow period:</label>
+
+								<select  id="time" name="timeframe" required>
+									<option value="" selected disabled>Select suitable time frame</option>
+									<option value="15 days">15 Days</option>
+									<option value="8 months">8 Months</option>
+
+								</select>
+							</div>
 				<br>
 							<!-- <div class="deptdiv">
 							<label>Department:</label>
@@ -149,14 +160,16 @@ if(!isset($_SESSION['logged'])){
 							} ?>
 							</div> -->
 				<br>
+				
 			</div>
-			<div id="issuebutton">
+			<input type="submit" name="" value="Issue Book" id="issuebutton">
+			<!-- <div id="issuebutton">
 
 				<a href="./issuebookBackend.php" id="issuebtn">
 									<b>Issue Book</b>
 								</a>
-			</div>
-
+			</div> -->
+</form>
 			<?php
 					if(!isset($_SESSION['bid'])){
 						echo "<script src='hideBookDisplayBox.js'></script>";

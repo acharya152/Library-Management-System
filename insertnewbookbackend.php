@@ -38,6 +38,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 					}else{
 
 						$_SESSION['issueSucess']="true";
+						$checkindb1=mysqli_query($con,$sql2);
 					}
 				}
 				catch(Exception $e){
@@ -46,7 +47,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 					
 				}	
 			
-							$checkindb=mysqli_query($con,$sql2);
+							
 							//generate barcode
 
 
@@ -74,7 +75,11 @@ $con=mysqli_connect($host,$user,$password,$db);
 								    <!-- <button id="btn" onclick="fun2()">Generate Barcode</button> -->
 								      
 <?php
-for($i=1;$i<=$no;$i++){
+
+	if(isset($_SESSION['issueSucess'])){
+
+
+	for($i=1;$i<=$no;$i++){
 
 	$barcode = $bid.$i;
 	$svgID = "dispBar".$i;
@@ -88,6 +93,7 @@ for($i=1;$i<=$no;$i++){
 								echo ('<script> JsBarcode("#'.$svgID.'",'.$barcode.');</script>');
 										
 							}
+	}
 ?>
 	</div>
 
