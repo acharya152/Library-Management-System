@@ -31,6 +31,7 @@ $db="libraryms";
 					</script>
 </head>
 <body>
+
 	<div id="dashbody" onclick="fun2()">
 		<div id="dashboardpanel">
 							<div class="logo">
@@ -158,17 +159,18 @@ $db="libraryms";
 							</div>
 			<div  id="issuebutton">
 
-				<a href="./issuebook.php" class="issuebtn">
+				<a href="./issuebook.php" class="issuebtn" name="barcode" value="<?php echo($barcode) ?>">
 									<b>Renew</b>
 								</a>
 			</div>
 			<div  id="viewbutton">
-				<a href="./viewborrowedbooks.php" class="viewbtn">
+				<a href="./calculatefine.php?barcode=<?php echo($barcode)?>" class="viewbtn">
 				
 									<b>Remove</b>
 								</a>
 
 			</div>
+			
 				
 				
 			</div>
@@ -273,7 +275,7 @@ while($rows=mysqli_fetch_assoc($result2)){
 								</a>
 			</div>
 			<div  id="viewbutton">
-				<a href="./viewborrowedbooks.php" class="viewbtn">
+				<a href="./calculatefine.php?barcode=<?php echo($barcode)?>" class="viewbtn">
 				
 									<b>Remove</b>
 								</a>
@@ -288,7 +290,7 @@ while($rows=mysqli_fetch_assoc($result2)){
 }
 	?>
 
-		
+
 	
 	</div>
 
@@ -311,18 +313,25 @@ while($rows=mysqli_fetch_assoc($result2)){
 		<label id="num"><?php echo($count)?></label><br><br>
 		<button id="btn1" >Remove All </button>
 		<button id="btn2">Renew All </button>
-
 	</div>
 	<div id="fine">
 
 		<label>Fine Amount:</label><br>
-		<label id="num"></label><br><br>
-		<form>
+		<label id="num"><?php echo ($_SESSION['fineAmount']) ?></label><br><br>
+		<form action="removebook.php">
 			<input type="checkbox" name="" required><label> Fine amount received<br><br></label>
 		<input type="submit" value="Confirm Remove" id="btn3">
 		</form>
 
 	</div>
+
+	<?php
+				if(isset($_SESSION['Rbarcode'])){
+					echo "<script src='showFineBox.js'></script>";
+					//unset barcode
+					// unset($_SESSION['Rbarcode']);
+				}
+			?>
 
 		
 </body>

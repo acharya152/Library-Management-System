@@ -18,10 +18,14 @@
 
 						//error sessions
 						unset($_SESSION['errorMsg']);
+
 						unset($_SESSION['errorMsgfordelete']);
 						
 						unset($_SESSION['deleted']);
 
+
+
+						unset($_SESSION['dberror']);
 
 
 						
