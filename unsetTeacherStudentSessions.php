@@ -18,6 +18,7 @@
 
 						//error sessions
 						unset($_SESSION['errorMsg']);
+						unset($_SESSION['dberror']);
 
 						
  

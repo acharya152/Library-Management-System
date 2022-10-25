@@ -10,11 +10,13 @@
 
 		$date1= date_create($datetoday1);
 
-		date_add($date1,date_interval_create_from_date_string("6 months"));
+		date_add($date1,date_interval_create_from_date_string("1 days"));
+
 		$datetoday=date_format($date1,"Y-m-d");
 		echo ($datetoday);
 
-		var_dump(date_diff($date,$date1));
+		$interval=date_diff($date1,$date);
+		echo($interval->days);
 
 ?>
 
