@@ -61,21 +61,30 @@ $db="libraryms";
 
 		<div id="main_body">
 			<?php						
-
+				// echo($_SESSION['tid']);
 				$con=mysqli_connect($host,$user,$password,$db);
 				if(!$con){
 					echo "Not connected".mysqli_connect_error();
 				}
 
-				$sql = 'select * from borrowedbook_data where sid="'.$_SESSION['sid'].'"';
-				$result = mysqli_query($con,$sql);
-				$numbooks = mysqli_num_rows($result);
-				if($numbooks==0){
-					$_SESSION['dberror']= "no books issued";
-				}
+				
+				
+
+				
 					$count=0;
-				while($rows=mysqli_fetch_assoc($result)){
+
+					if(isset($_SESSION['sid'])){
+						// echo "hello";
+						$sql1 = 'select * from borrowedbook_data where sid="'.$_SESSION['sid'].'"';
+						$result1 = mysqli_query($con,$sql1);
+						$numbooks1 = mysqli_num_rows($result1);
+				// 		if(($numbooks1==0))
+				// 		{
+				// 	$_SESSION['dberror']= "no books issued";
+				// }
+				while($rows=mysqli_fetch_assoc($result1)){
 					$barcode = $rows["barcode"];
+					// echo ($barcode);
 					$duedate=$rows["duedate"];
 
 					
@@ -95,13 +104,13 @@ $db="libraryms";
 
 
 					
-					$sql1 = 'select bid from books_barcode where barcode="'.$barcode.'"';
-					$db = mysqli_query($con,$sql1);
+					$sql3 = 'select bid from books_barcode where barcode="'.$barcode.'"';
+					$db = mysqli_query($con,$sql3);
 					$dbrows = mysqli_fetch_assoc($db);
 					$bid = $dbrows["bid"];
 
-					$sql2 = 'select * from books_data where bid="'.$bid.'"';
-					$db1 = mysqli_query($con,$sql2);
+					$sql4 = 'select * from books_data where bid="'.$bid.'"';
+					$db1 = mysqli_query($con,$sql4);
 					$dbrows1 = mysqli_fetch_assoc($db1);
 					$bname=$dbrows1["bname"];
 					$aname=$dbrows1["autname"];
@@ -166,6 +175,117 @@ $db="libraryms";
 
 	<?php 
 			}
+		}
+
+
+
+	elseif(isset($_SESSION['tid'])){
+		$sql2 = 'select * from teacherborrowedbook_data where tid="'.$_SESSION['tid'].'"';
+
+				
+				$result2 = mysqli_query($con,$sql2);
+
+
+				
+				$numbooks2 = mysqli_num_rows($result2);
+				// if(($numbooks2==0)){
+				// 	$_SESSION['dberror']= "no books issued";
+				// }
+	
+
+while($rows=mysqli_fetch_assoc($result2)){
+					$barcode = $rows["barcode"];
+					$duedate=$rows["duedate"];
+
+					
+
+					$datet =getdate();
+					$datetoday = $datet['year']."-".$datet['mon']."-".$datet['mday'];
+					
+					
+
+					if($datetoday>$duedate){
+						$count+=1;
+
+					}
+
+					
+					// $duedate=$rows["issuedate"];
+
+
+					
+					$sql3 = 'select bid from books_barcode where barcode="'.$barcode.'"';
+					$db = mysqli_query($con,$sql3);
+					$dbrows = mysqli_fetch_assoc($db);
+					$bid = $dbrows["bid"];
+
+					$sql4 = 'select * from books_data where bid="'.$bid.'"';
+					$db1 = mysqli_query($con,$sql4);
+					$dbrows1 = mysqli_fetch_assoc($db1);
+					$bname=$dbrows1["bname"];
+					$aname=$dbrows1["autname"];
+
+
+
+	
+
+
+	?>
+
+
+
+
+		<div id="studentdisplaybox">
+							<div class="namediv">
+							<label>Book ID:</label>
+							<?php 
+								echo($barcode);
+							 ?>
+							
+							</div>
+				<br>
+							<div class="contactdiv">
+							<label>Book Name:</label>
+							<?php 
+								echo($bname);
+							 ?>
+							
+							</div>
+				<br>
+							<div class="yeardiv">
+							<label>Author Name:</label>
+							<?php 
+								echo($aname);
+							 ?>
+							
+							</div>
+							<div class="yeardiv2">
+							<label>Due date:</label>
+							<?php 
+								echo($duedate);
+							 ?>
+							
+							</div>
+			<div  id="issuebutton">
+
+				<a href="./issuebook.php" class="issuebtn">
+									<b>Renew</b>
+								</a>
+			</div>
+			<div  id="viewbutton">
+				<a href="./viewborrowedbooks.php" class="viewbtn">
+				
+									<b>Remove</b>
+								</a>
+
+			</div>
+				
+				
+			</div>
+
+<?php
+	}
+}
 	?>
 
 		
@@ -176,7 +296,17 @@ $db="libraryms";
 	<div id="removeall">
 
 		<label>No of books issued:</label><br>
-		<label id="num"><?php  echo($numbooks)?></label><br><br>
+		<label id="num"><?php  
+		 if(isset($_SESSION['tid'])){
+			echo($numbooks2);
+		} 
+		elseif(isset($_SESSION['sid'])){
+			echo($numbooks1);
+		}
+
+		 ?>
+		 	
+		 </label><br><br>
 		<label>No of overdue books:</label><br>
 		<label id="num"><?php echo($count)?></label><br><br>
 		<button id="btn1" >Remove All </button>

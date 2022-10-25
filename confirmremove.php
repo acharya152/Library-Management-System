@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		
+		body{
+			background-image: url(blur2.jpg);
+			background-size: cover;
+		}
+		#mainbox{
+			background-color:#dde8ed;
+			z-index: 2;
+			height: 30vh;
+			width: 30vw;
+			position: absolute;
+			top: 35vh;
+			left: 35vw;
+			border-radius: 20px;
+			border: 8px solid yellowgreen;
+
+		}
+		#text{
+			color: #414e66;
+			font-size: 5vh;
+			font-family: "Trebuchet MS", Helvetica, sans-serif;
+			font-weight: bold;
+			text-align: center;
+			position:relative;
+			top: 3vh
+		}
+		#yes{
+			background-color: yellowgreen;
+			height: 9vh;
+			width: 9vw;
+			border-radius: 20px;
+			text-align: center;
+			/*padding-top: 2vh;*/
+			color: white;
+			font-family: "Trebuchet MS", Helvetica, sans-serif;
+			font-size: 6vh;
+			position: absolute;
+			top: 15vh;
+			left: 3vw;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+
+
+		}
+		#no{
+			background-color: indianred;
+			height: 9vh;
+			width: 9vw;
+			border-radius: 20px;
+			text-align: center;
+			/*padding-top: 2vh;*/
+			color: white;
+			font-family: "Trebuchet MS", Helvetica, sans-serif;
+			font-size: 5vh;
+			position: absolute;
+			top: 15vh;
+			right: 3vw ;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+
+
+		}
+	</style>
+
+	<script type="text/javascript">
+		
+
+				function func1(){
+						window.location.href="removefromrecord.php";
+				}
+
+				function func2(){
+						window.location.href="insertrec.php";
+				}
+	</script>
+</head>
+<body>
+				<div id="mainbox">
+					
+						<div id="text">
+								Confirm Remove?
+						</div>
+
+						<div id="yes" onclick="func1()">
+							Yes
+								
+						</div>
+						<div id="no" onclick="func2()">
+							Cancel
+								
+						</div>
+				</div>
+</body>
+</html>

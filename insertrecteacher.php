@@ -78,13 +78,35 @@
 			<div id="displayErrorBox">
 				*Please enter a valid TeacherID
 			</div>
+			<div id="displayErrorBoxfordelete">
+				*The teacher you are trying to remove has books issued. 
+			</div>
+			
+
+			
+
+			<div id="displayErrorBoxforremoveddata">
+				*Teacher removed successfully.
+			</div>
+
+			<?php 
+				if(isset($_SESSION['deleted'])){
+					echo "<script src='showerrorboxforstudentremoved.js'></script>";
+					include("unsetTeacherStudentSessions.php");
+				}
+			?>
 			<?php 
 				if(isset($_SESSION['errorMsg'])){
 					echo "<script src='showErrorBox.js'></script>";
 					include("unsetTeacherStudentSessions.php");
 				}
 			?>
-
+			<?php 
+				if(isset($_SESSION['errorMsgfordelete'])){
+					echo "<script src='showerrorboxfornotdeleted.js'></script>";
+					// include("unsetTeacherStudentSessions.php");
+				}
+			?>
 			
 				<!-- unset session variables after viewing records -->
 
@@ -144,9 +166,16 @@
 								</a>
 			</div>
 			<div  id="viewbutton">
-				<a href="./comingSoon.php" class="viewbtn">
+				<a href="./viewborrowedbooks.php" class="viewbtn">
 				<!-- <a href="./borrowedbook.php" class="viewbtn"> -->
 									<b>Borrowed Books</b>
+								</a>
+
+			</div>
+			<div  id="removebutton">
+				<a href="./confirmremove.php" class="viewbtn">
+				<!-- <a href="./borrowedbook.php" class="viewbtn"> -->
+									<b>Remove Teacher</b>
 								</a>
 
 			</div>

@@ -1,0 +1,1 @@
+document.getElementById('displayErrorBoxforremoveddata').style.visibility= 'visible';

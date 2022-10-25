@@ -128,14 +128,35 @@ img{
 	color:rgb(179, 10, 10) ;
 	font-size: medium;
 }
-
+#displayErrorBoxfordelete{
+	/* background-color: red; */
+	/* z-index: 3; */
+	position: absolute;
+	visibility: hidden;
+	top: 25%;
+	width: 50%;
+	height: 20%;
+	color:rgb(179, 10, 10) ;
+	font-size: medium;
+}
+#displayErrorBoxforremoveddata{
+	/* background-color: red; */
+	/* z-index: 3; */
+	position: absolute;
+	visibility: hidden;
+	top: 25%;
+	width: 50%;
+	height: 20%;
+	color:rgb(179, 10, 10) ;
+	font-size: medium;
+}
 #studentdisplaybox{
 background-color: #414e66;
 
 	position: absolute;
 	top: 45%;
 	width: 57%;
-	height: 70%;
+	height: 75%;
 	text-align: left;
 	padding-top: 2%;
 	border-radius: 20px;
@@ -241,7 +262,7 @@ margin-right: 1%;
 #issuebutton{
 	z-index: 1;
 	position: absolute;
-	top: 60%;
+	top: 50%;
 	left: 67%;
 	background-color: yellowgreen;
 	height: 20%;
@@ -253,10 +274,28 @@ margin-right: 1%;
 	visibility: visible;
 
 }
+#removebutton{
+	z-index: 1;
+	position: absolute;
+	top: 108%;
+	left: 67%;
+	background-color: indianred;
+	height: 10%;
+	width: 10%;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 100%;
+	padding-top: 15px;
+	visibility: visible;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: whitesmoke;
+
+
+}
 
 .viewbtn{
 	color: whitesmoke;
-	visibility: visible;
+	/*visibility: visible;*/
 
 
 
@@ -271,7 +310,7 @@ margin-right: 1%;
 
 #viewbutton{
 position: absolute;
-top: 90%;
+top: 80%;
 left: 67%;
 background-color: yellowgreen;
 height: 20%;

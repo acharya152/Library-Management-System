@@ -4,8 +4,8 @@
  		header("Location:./loginform.php");
 
  	}
-	include("unsetBookSessions.php");
-	unset($_SESSION['tid']);
+	// include("unsetBookSessions.php");
+	// unset($_SESSION['tid']);
  	
 	
  ?>
@@ -78,15 +78,39 @@
 			<div id="displayErrorBox">
 				*Please enter a valid StudentID
 			</div>
+			<div id="displayErrorBoxfordelete">
+				*The student you are trying to remove has books issued. 
+			</div>
+			
+
+			
+
+			<div id="displayErrorBoxforremoveddata">
+				*Student removed successfully.
+			</div>
+			<?php 
+				if(isset($_SESSION['deleted'])){
+					echo "<script src='showerrorboxforstudentremoved.js'></script>";
+					include("unsetTeacherStudentSessions.php");
+				}
+			?>
+				<!-- unset session variables after viewing records -->
+
 			<?php 
 				if(isset($_SESSION['errorMsg'])){
 					echo "<script src='showErrorBox.js'></script>";
 					include("unsetTeacherStudentSessions.php");
 				}
 			?>
+			<?php 
+				if(isset($_SESSION['errorMsgfordelete'])){
+					echo "<script src='showerrorboxfornotdeleted.js'></script>";
+					// include("unsetTeacherStudentSessions.php");
+				}
+			?>
 
-			
-				<!-- unset session variables after viewing records -->
+
+
 
 
 
@@ -150,6 +174,13 @@
 								</a>
 
 			</div>
+			<div  id="removebutton">
+				<a href="./confirmremove.php" class="viewbtn">
+				<!-- <a href="./borrowedbook.php" class="viewbtn"> -->
+									<b>Remove Student</b>
+								</a>
+
+			</div>
 			<?php
 					if(!isset($_SESSION['sid'])){
 						echo "<script src='hideStudentDisplayBox.js'></script>";
@@ -161,6 +192,9 @@
 
 
 	</div>
+
+	->
+
 		
 </body>
 </html>

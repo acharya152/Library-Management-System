@@ -56,8 +56,16 @@ error_reporting(E_ALL);
 
 										$query = "insert into borrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate')";
 									}elseif(isset($_SESSION['tid'])){
+										$days=$_POST['timeframe'];
+												$date =getdate();
+										$datetoday = $date['year']."-".$date['mon']."-".$date['mday'];
+		// echo($datetoday);
+		
+											$date1= date_create($datetoday);
+											date_add($date1,date_interval_create_from_date_string($days));
+											$duedate=date_format($date1,"Y-m-d");
 										$sid = $_SESSION['tid'];
-										$query = "insert into teacherborrowedbook_data values('$sid','$barcode')";
+										$query = "insert into teacherborrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate')";
 
 									}
 								// var_dump($query);
