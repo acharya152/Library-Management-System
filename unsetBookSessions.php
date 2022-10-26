@@ -8,6 +8,8 @@
 						unset($_SESSION['bname']);
 						unset($_SESSION['autname']);
 					unset($_SESSION['Rbarcode']);
+					unset($_SESSION['removeAll']);
+
 
 						// unset($_SESSION['subject']);
 						// unset($_SESSION['Teacherdepartment']);

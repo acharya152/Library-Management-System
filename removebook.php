@@ -15,45 +15,77 @@ if(!$con){
     echo "Not connected".mysqli_connect_error();
 }
 
+
 if (isset($_SESSION['sid'])){
-try{
-    
-    $sql = "DELETE from borrowedbook_data where barcode=".$_SESSION['Rbarcode'];
-    
-    
-    $result = mysqli_query($con,$sql);
-    if(!$result){
-        throw new Exception(mysqli_error($con));
+    if(isset($_SESSION['removeAll'])){
+        $sql = "DELETE from borrowedbook_data where sid=".$_SESSION['sid'];
+    }else{
+        $sql = "DELETE from borrowedbook_data where barcode=".$_SESSION['Rbarcode'];
+
     }
-}catch(Exception $e){
-    echo $e->getMessage();
+}elseif (isset($_SESSION['tid'])){
+    if(isset($_SESSION['removeAll'])){
+        $sql = "DELETE from teacherborrowedbook_data where tid=".$_SESSION['tid'];
+    }else{
+        $sql = "DELETE from teacherborrowedbook_data where barcode=".$_SESSION['Rbarcode'];
+
+    }
 }
-// echo $sql;
-					unset($_SESSION['Rbarcode']);
-
-                header("location:".$_SERVER['HTTP_REFERER']);
-
-
+    try{
+        $result = mysqli_query($con,$sql);
+        if(!$result){
+            throw new Exception(mysqli_error($con));
+        }
+    }catch(Exception $e){
+        echo $e->getMessage();
     }
-
-elseif (isset($_SESSION['tid'])){
-try{
+    // echo $sql;
+    					unset($_SESSION['Rbarcode']);
+                        unset($_SESSION['removeAll']);
+                    header("location:".$_SERVER['HTTP_REFERER']);
     
-    $sql = "DELETE from teacherborrowedbook_data where barcode=".$_SESSION['Rbarcode'];
+    
+        
+
+// if (isset($_SESSION['sid'])){
+// try{
+    
+//     $sql = "DELETE from borrowedbook_data where barcode=".$_SESSION['Rbarcode'];
     
     
-    $result = mysqli_query($con,$sql);
-    if(!$result){
-        throw new Exception(mysqli_error($con));
-    }
-}catch(Exception $e){
-    echo $e->getMessage();
-}
-// echo $sql;
-                    unset($_SESSION['Rbarcode']);
+//     $result = mysqli_query($con,$sql);
+//     if(!$result){
+//         throw new Exception(mysqli_error($con));
+//     }
+// }catch(Exception $e){
+//     echo $e->getMessage();
+// }
+// // echo $sql;
+// 					unset($_SESSION['Rbarcode']);
 
-                header("location:".$_SERVER['HTTP_REFERER']);
+//                 header("location:".$_SERVER['HTTP_REFERER']);
 
 
-    }
+//     }
+
+// elseif (isset($_SESSION['tid'])){
+// try{
+    
+//     $sql = "DELETE from teacherborrowedbook_data where barcode=".$_SESSION['Rbarcode'];
+    
+    
+//     $result = mysqli_query($con,$sql);
+//     if(!$result){
+//         throw new Exception(mysqli_error($con));
+//     }
+// }catch(Exception $e){
+//     echo $e->getMessage();
+// }
+// // echo $sql;
+//                     unset($_SESSION['Rbarcode']);
+
+//                 header("location:".$_SERVER['HTTP_REFERER']);
+
+
+//     }
  ?>

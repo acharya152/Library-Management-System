@@ -26,6 +26,17 @@ $db="libraryms";
 				function fun2(){
 						document.getElementById("inpts1").focus();
 				}
+				function fun3(){
+					//removeall
+					location.href="./calculateFineAllBook.php";
+
+				}
+
+				function fun4(){
+					
+				//renewall
+
+				}
 
 
 					</script>
@@ -311,8 +322,8 @@ while($rows=mysqli_fetch_assoc($result2)){
 		 </label><br><br>
 		<label>No of overdue books:</label><br>
 		<label id="num"><?php echo($count)?></label><br><br>
-		<button id="btn1" >Remove All </button>
-		<button id="btn2">Renew All </button>
+		<button id="btn1" onclick="fun3()">Remove All </button>
+		<button id="btn2" onclick="fun4()">Renew All </button>
 	</div>
 	<div id="fine">
 
@@ -326,10 +337,10 @@ while($rows=mysqli_fetch_assoc($result2)){
 	</div>
 
 	<?php
-				if(isset($_SESSION['Rbarcode'])){
+				if(isset($_SESSION['fineAmount'])){
 					echo "<script src='showFineBox.js'></script>";
 					//unset barcode
-					// unset($_SESSION['Rbarcode']);
+					unset($_SESSION['fineAmount']);
 				}
 			?>
 
