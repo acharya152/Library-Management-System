@@ -170,7 +170,7 @@ $db="libraryms";
 							</div>
 			<div  id="issuebutton">
 
-				<a href="./issuebook.php" class="issuebtn" name="barcode" value="<?php echo($barcode) ?>">
+				<a href="./renewBook.php?barcode=<?php echo($barcode)?>" class="issuebtn" >
 									<b>Renew</b>
 								</a>
 			</div>
@@ -281,7 +281,7 @@ while($rows=mysqli_fetch_assoc($result2)){
 							</div>
 			<div  id="issuebutton">
 
-				<a href="./issuebook.php" class="issuebtn">
+				<a href="./renewBook.php?barcode=<?php echo($barcode)?>" class="issuebtn">
 									<b>Renew</b>
 								</a>
 			</div>
@@ -341,6 +341,11 @@ while($rows=mysqli_fetch_assoc($result2)){
 					echo "<script src='showFineBox.js'></script>";
 					//unset barcode
 					unset($_SESSION['fineAmount']);
+
+			//style error and sucess message message
+				}elseif(isset($_SESSION['dberror'])){
+					echo $_SESSION['dberror'];
+					unset($_SESSION['dberror']);
 				}
 			?>
 
