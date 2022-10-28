@@ -35,9 +35,17 @@ try{
     $newdate=date_format($duedate,"Y-m-d");
     
 if(isset($_SESSION['sid'])){
-    $sql = 'UPDATE borrowedbook_data SET duedate ="'.$newdate.'" WHERE  barcode="'.$_SESSION['Rbarcode'].'"';
+    if(isset($_GET['renewAll'])){   
+        $sql = 'UPDATE borrowedbook_data SET duedate ="'.$newdate.'" WHERE  sid="'.$_SESSION['sid'].'"';
+    }else{
+         $sql = 'UPDATE borrowedbook_data SET duedate ="'.$newdate.'" WHERE  barcode="'.$_SESSION['Rbarcode'].'"';
+    }
 }elseif(isset($_SESSION['tid'])){
-    $sql = 'UPDATE teacherborrowedbook_data SET duedate ="'.$newdate.'" WHERE  barcode="'.$_SESSION['Rbarcode'].'"';
+    if(isset($_GET['renewAll'])){   
+        $sql = 'UPDATE teacherborrowedbook_data SET duedate ="'.$newdate.'" WHERE  sid="'.$_SESSION['tid'].'"';
+    }else{
+         $sql = 'UPDATE teacherborrowedbook_data SET duedate ="'.$newdate.'" WHERE  barcode="'.$_SESSION['Rbarcode'].'"';
+    }
 }
 $result = mysqli_query($con,$sql);
 if(!$result){
@@ -47,6 +55,9 @@ echo($result);
 }catch(Exception $e){
     echo $e->getMessage();
 }
+// if(isset($_SESSION['renewAll'])){   
+//     unset($_SESSION['renewAll']);
+// }   
 header("location:".$_SERVER['HTTP_REFERER']);
 
 ?>

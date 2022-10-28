@@ -35,7 +35,7 @@ $db="libraryms";
 				function fun4(){
 					
 				//renewall
-
+				location.href="./renewBook.php?renewAll=1"
 				}
 
 
