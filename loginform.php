@@ -30,7 +30,7 @@ if(isset($_POST['username'])){
   $usrname=$_POST['username'];
   $pass=$_POST['password'];
 
-  $sql="select * from login_form where Username='".$usrname."' AND Password='".$pass."' limit 1";
+  $sql="select * from admin_data where Username='".$usrname."' AND Password='".$pass."' limit 1";
 
   $checkindb=mysqli_query($con,$sql);
   if(mysqli_num_rows($checkindb)==1){
