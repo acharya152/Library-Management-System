@@ -5,6 +5,8 @@ session_start();
 
  	}
 
+	$_SESSION['confirm']="true";
+
 					$host="localhost";
 					$user="root";
 					$password="";
@@ -30,7 +32,7 @@ session_start();
 
 								
 							$sql1 = "delete from teacher_data where tid='".$sid."'";
-							echo"hello";
+							// echo"hello";
 						}
 
 

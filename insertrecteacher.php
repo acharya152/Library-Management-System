@@ -104,6 +104,7 @@
 			<?php 
 				if(isset($_SESSION['errorMsgfordelete'])){
 					echo "<script src='showerrorboxfornotdeleted.js'></script>";
+					unset($_SESSION['errorMsgfordelete']);
 					// include("unsetTeacherStudentSessions.php");
 				}
 			?>

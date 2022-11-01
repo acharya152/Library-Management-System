@@ -4,6 +4,7 @@
  		header("Location:./loginform.php");
 
  	}
+	//  unset($_SESSION['deleted']);
  	// include("StudentDetails.php");
  	// session_start();
 	 	// if(!isset($_SESSION['logged'])){

@@ -1,3 +1,18 @@
+<?php 
+ 	session_start();
+ 	if(!isset($_SESSION['logged'])){
+ 		header("Location:./loginform.php");
+ 	}
+	if( !(isset($_SESSION['sid']) || isset($_SESSION['tid']))){
+		header("location:dashboard.php");
+	}
+
+	if(isset($_SESSION['confirm'])){
+		unset($_SESSION['confirm']);
+		header("location:".$_SERVER['HTTP_REFERER']);
+	}
+
+ 		?>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,6 +99,9 @@
 				function func2(){
 						window.location.href="insertrec.php";
 				}
+				function func3(){
+						window.location.href="insertrecteacher.php";
+				}
 	</script>
 </head>
 <body>
@@ -97,7 +115,7 @@
 							Yes
 								
 						</div>
-						<div id="no" onclick="func2()">
+						<div id="no" onclick="<?php if(isset($_SESSION['sid'])){ echo("func2()");}else{echo("func3()");}?>">
 							Cancel
 								
 						</div>

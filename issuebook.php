@@ -51,11 +51,19 @@ if(!isset($_SESSION['logged'])){
 			
 		</div>
 		<div id="showSelectedStudent">
-				Member: <?php if(isset($_SESSION['sid'])){
-					echo $_SESSION['sid']."_ ".$_SESSION['studentname'];
-				}else{
-					echo $_SESSION['tid']."_ ".$_SESSION['studentname'];
-				} ?>
+		<?php if(isset($_SESSION['sid'])){?>
+			<a href="insertrec.php">
+				Member: 
+					<?php echo $_SESSION['sid']."_ ".$_SESSION['studentname'];?>
+			</a>
+		<?php
+			}else{
+		?>
+			<a href="insertrecteacher.php">
+				Member: 
+					<?php echo $_SESSION['tid']."_ ".$_SESSION['studentname'];?>
+			</a>
+		<?php } ?>
 		</div>
 		<div id="main_body">
 			

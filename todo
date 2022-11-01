@@ -1,0 +1,47 @@
+login
+-forgot password
+
+
+dashboard 
+ - remove click here and add icons
+
+
+students record --->issue new book
+  -same category book issued to student
+ - back to student detail from book id search panel              -->done
+ -student le 10 ota bhnada baki book issue huna nadine
+inventory
+
+ 
+
+students record --->borrowed
+- books borrowed nahuda student panel ma eroor aaune banaune --> panel ma error nadekhaune arko page mai dekhaune
+
+students record --->remove student
+  - error shows after failed to remove one student and searching another   -->done 
+
+-confirm remove  wala page back garda aayo feri confirm garda error         -->done try test again
+
+
+teachers record --->confirm remove
+ - confirm remove cancel  garda student panel ma jancha                     -->done
+
+insert student /teacher
+ -student/teacher id auto generate
+
+insert book
+ - book id lai isbn 
+-isbn nabhako ma unique id generate
+
+
+books record
+-seperate barcode generate
+-no of books
+-available books
+
+mi
+
+*contact validation
+*barcode display in new page
+*confirm renew
+*books inventory ma data jadaina
