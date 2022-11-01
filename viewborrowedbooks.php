@@ -351,11 +351,31 @@ while($rows=mysqli_fetch_assoc($result2)){
 					unset($_SESSION['fineAmount']);
 
 			//style error and sucess message message
-				}elseif(isset($_SESSION['dberror'])){
-					echo $_SESSION['dberror'];
-					unset($_SESSION['dberror']);
+				// }elseif(isset($_SESSION['dberror'])){
+				// 	echo $_SESSION['dberror'];
+				// 	unset($_SESSION['dberror']);
 				}
 			?>
+
+<div id="displayErrorBox">
+					<?php 
+						if(isset($_SESSION['error'])){
+							
+							echo($_SESSION['error']);
+						}
+						elseif(isset($_SESSION['dberror'])){
+							echo($_SESSION['dberror']);
+						}
+				?>
+			</div>
+			<?php 
+				if((isset($_SESSION['error'])) || (isset($_SESSION['dberror']))){ 
+					echo "<script src='showErrorBox.js'></script>";
+					// include("unsetBookSessions.php");
+					unset($_SESSION['error']);
+					unset($_SESSION['dberror']);
+				}
+			?>	
 
 		
 </body>

@@ -150,6 +150,20 @@ img{
 	color:rgb(179, 10, 10) ;
 	font-size: medium;
 }
+#displayErrorBox{
+	/* background-color: red; */
+	/* z-index: 3; */
+	position: absolute;
+	visibility: hidden;
+	top: 25%;
+	width: 50%;
+	height: 20%;
+	color:rgb(179, 10, 10) ;
+	font-size: medium;
+}
+#sucess{
+	color: green;
+}
 
 #studentdisplaybox{
 background-color: #414e66;
