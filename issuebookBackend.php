@@ -54,7 +54,7 @@ error_reporting(E_ALL);
 
 
 
-										$query = "insert into borrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate')";
+										$query = "insert into borrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate',0)";
 									}elseif(isset($_SESSION['tid'])){
 										$days=$_POST['timeframe'];
 												$date =getdate();
@@ -65,7 +65,7 @@ error_reporting(E_ALL);
 											date_add($date1,date_interval_create_from_date_string($days));
 											$duedate=date_format($date1,"Y-m-d");
 										$sid = $_SESSION['tid'];
-										$query = "insert into teacherborrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate')";
+										$query = "insert into teacherborrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate',0)";
 
 									}
 								// var_dump($query);
