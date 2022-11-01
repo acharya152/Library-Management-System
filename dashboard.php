@@ -9,6 +9,7 @@
  	}
  	include("unsetTeacherStudentSessions.php");
 include("unsetBookSessions.php");
+// unset($_SESSION['deleted']);
 
  		?>				
 <!DOCTYPE html>

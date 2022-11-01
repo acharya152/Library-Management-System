@@ -78,6 +78,7 @@
 			<div id="displayErrorBox">
 				*Please enter a valid StudentID
 			</div>
+
 			<div id="displayErrorBoxfordelete">
 				*The student you are trying to remove has books issued. 
 			</div>
@@ -105,6 +106,7 @@
 			<?php 
 				if(isset($_SESSION['errorMsgfordelete'])){
 					echo "<script src='showerrorboxfornotdeleted.js'></script>";
+					unset($_SESSION['errorMsgfordelete']);
 					// include("unsetTeacherStudentSessions.php");
 				}
 			?>
