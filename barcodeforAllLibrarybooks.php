@@ -12,7 +12,7 @@ $password="";
 $db="libraryms";
 						
 $bid=$_GET['bid'];
-$bid=1004;
+// $bid=1004;
 
 $con=mysqli_connect($host,$user,$password,$db);
 		if(!$con){

@@ -18,9 +18,11 @@
 	<title></title>
 	<!-- to set focus on searchpanel despite clicking anywhere on the screen -->
 		<script type="text/javascript">
-				function fun2(){
-						document.getElementById("inpts1").focus();
+				
+				function fun3(){
+						document.getElementById('removeall').style.visibility='visible';
 				}
+				
 
 
 					</script>
@@ -80,12 +82,14 @@
      $password="";
      $db="libraryms";
      $con=mysqli_connect($host,$user,$password,$db);
+     if(isset ($_POST['SearchId'])){
+     $_SESSION['bookrecord']=$_POST['SearchId'];}
      if(!$con){
      echo "Not connected".mysqli_connect_error();
      }
      else{
-        if(isset($_POST['SearchId'])){            
-            $searchid=$_POST['SearchId'];
+        if(isset($_SESSION['bookrecord'])){            
+            $searchid=$_SESSION['bookrecord'];
             $sql="select * from books_data where bname='$searchid'";
             $result = mysqli_query($con,$sql);
             if(mysqli_num_rows($result)>0){
@@ -110,16 +114,17 @@
             }
 
            while($next=mysqli_fetch_assoc($result)){
-			var_dump($next);
+			// var_dump($next);
 			$bname=$next['bname'];
 			$bid=$next['bid'];
+
 			$autname=$next['autname'];
 
 				
  ?>
  
 
-				<div id="studentdisplaybox">
+<div id="studentdisplaybox">
 								<div class="namediv">
 								<label>ISBN:</label>
 								<?php 
@@ -141,30 +146,64 @@
 								<?php 
 									echo($autname);
 								?>
-				<div  id="issuebutton">
+							</div>
+							<br>
+								<div class="yeardiv">
+								<label>Total number of books:</label>
+								<?php 
+									// echo($autname);
+								?>
+							</div>
+							<br>
+								<div class="yeardiv">
+								<label> Number of books available:</label>
+								<?php 
+									// echo($autname);
+								?>
+							</div>
+				<div  id="issuebutton" onclick="fun3()">
 
-					<a href="./renewBook.php?barcode=<?php echo($barcode)?>" class="issuebtn" >
-										<b>Renew</b>
+					<a  class="issuebtn" >
+										<b>Add Books </b>
 									</a>
 				</div>
 				<div  id="viewbutton">
-					<a href="./calculatefine.php?barcode=<?php echo($barcode)?>" class="viewbtn">
+					<a href="./confirmremoveallbook.php?bid=<?php echo ($bid)?>" class="viewbtn">
 					
-										<b>Remove</b>
+										<b>Remove Book</b>
 									</a>
 
 				</div>
+				<div  id="genbutton">
+					<a href="./barcodeforAllLibrarybooks.php?bid=<?php echo($bid)?>" class="viewbtn">
+					
+										<b>Generate Barcodes</b>
+									</a>
+
+				</div>
+			
+</div>
 
 <?php 
  }
 }
 
 		   }
+
+		   if(isset ($_SESSION['bookrecord'])){
+
+		   }
         
 ?>
+<div id="removeall">
+		<form method="POST" action="addbooks.php">
+		<input type="text" name="numbooks" id="getnum" placeholder="Enter number of books"><br>
+		<button id="btn1" type="submit" >Add</button>
+		<!-- <input type="submit" name="" value="Add" id="btn1"> -->
+		</form>
+	</div>
+</div>
+</div>
 
-			<div id="displayErrorBox">
-				*Please enter a valid StudentID
-			</div>
-<div>
-
+</body>
+</html>

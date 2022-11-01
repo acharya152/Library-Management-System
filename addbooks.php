@@ -18,8 +18,8 @@
 
     
         //getting bid from url
-        $bid=$_GET['bid'];
-        // $bid=1001;
+        // $bid=$_GET['bid'];
+        $bid=1001;
 
 
         //getting books data from bid
@@ -36,7 +36,7 @@
         $lastbarcode = $row['MAX(barcode)'];
 
         //num of books to add
-        $booksnum = 10;//addnumhere;
+        $booksnum = $_POST['numbooks'];
 ?>
 <html>
 	<head>
@@ -54,6 +54,7 @@
 								    <!-- <button id="btn" onclick="fun2()">Generate Barcode</button> -->
 <?php
         //update barcode table
+$error='';
             for($i=1;$i<=$booksnum;$i++){        
                 $barcode = $lastbarcode.$i;
                 $svgID = "dispBar".$i;
@@ -76,6 +77,9 @@
             $query=mysqli_query($con,$sql);
 
         }
+
+
+        header("location:".$_SERVER['HTTP_REFERER']);
 ?>
 </div>
 

@@ -27,7 +27,9 @@ $sql = "delete from books_barcode where bid='$bid'";
 try{
     $query=mysqli_query($con,$sql);
     if(!$query){
+
         throw new Exception(mysqli_error($con));
+
     }
     else{
         $sql="delete from books_inventory where bid='$bid'";
@@ -46,5 +48,5 @@ try{
     echo $e->getMessage();
 }
 
-
+ header("location:bookrecord.php");
 ?>

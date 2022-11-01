@@ -7,7 +7,7 @@
 						unset($_SESSION['contact']);
 						unset($_SESSION['year']);
 						unset($_SESSION['department']);
- 
+ unset( $_SESSION['bookrecord']);
 						// teacher sessions
 						unset($_SESSION['tid']);
 
