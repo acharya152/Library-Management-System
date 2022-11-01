@@ -32,6 +32,7 @@
  <script type="text/javascript">
  	window.onload=function fun1(){
 						document.getElementById("bname").focus();
+						document.forms['form1'].reset();
 				}
  </script>
 
@@ -64,7 +65,7 @@
 								</div>
 			
 		</div>
-
+<div id="mainbox">
 	
 		<div id="addNewFeature">
 
@@ -89,24 +90,34 @@
 						
 						// to get total existing books in library  
 
-						$sql="select * from teacher_data"; 
+						$sql="select max(tid) from teacher_data"; 
 
 						  $checkindb=mysqli_query($con,$sql);
-						  $rows=mysqli_num_rows($checkindb)+1;
-						  $studentid=($rows);
+						   $rows=mysqli_fetch_assoc($checkindb);
+						  $value=$rows['max(tid)'];
+
+						  if($value==0){
+						  $studentid=($value)+8000;
+
+						  }else{
+						  $studentid=($value)+1;
+
+						  }
+						  $_SESSION['passteacherid']=$studentid;
 						 }
 
 						?> 
 						 
-	<div id="register">			
-<p id="register">REGISTER NEW TEACHER</p></div>
-<div id="form"><br>
+<div  id="img1"> 
+	<img src="426327.png">
+</div>			 
+<div id="form">
 						<!-- <input type="text" id="text"> -->
-						<form method="POST" action="insertnewteacherbackend.php" >
+						<form method="POST" action="insertnewteacherbackend.php" name="form1">
 						
 						<label> Teacher ID:</label>
-						<!-- <label id="text" ><?php echo ($rows);?></label><br> -->
-						<input type="text" name="bid" id="bid" value="<?php echo ($studentid);?>"readonly><br>
+						<label id="text" name="text"><?php echo ($studentid);?></label><br>
+						<!-- <input type="text" name="bid" id="bid" value="<?php echo ($studentid);?>"readonly><br> -->
 						<label>Teacher Name:</label>
 						<input type="text" name="bname" id="bname" required><br>
 						<label>Contact:</label>
@@ -176,5 +187,6 @@
 					unset($_SESSION['issueSucess']);
 				}
 			?>	
+		</div>
 </body>
 </html>

@@ -69,7 +69,7 @@
 			
 		</div>
 
-	
+	<div id="mainbox">
 		<div id="addNewFeature">
 
 
@@ -93,26 +93,38 @@
 						
 						// to get total existing books in library  
 
-						$sql="select * from student_data"; 
+						$sql="select max(sid) from student_data"; 
 
 						  $checkindb=mysqli_query($con,$sql);
-						  $rows=mysqli_num_rows($checkindb)+1;
-						  $studentid=($rows);
+						  $rows=mysqli_fetch_assoc($checkindb);
+						  $value=$rows['max(sid)'];
+
+						  if($value==0){
+						  $studentid=($value)+1000;
+
+						  }else{
+						  $studentid=($value)+1;
+
+						  }
+						  $_SESSION['passstudentid']=$studentid;
 						 }
 
 						?> 
-						 
-	<div id="register">			
-<p id="register">REGISTER NEW STUDENT</p></div>
-<div id="form"><br>
-						<!-- <input type="text" id="text"> -->
-						<form method="POST" action="insertnewstudentbackend.php" name="form1" >
+			<div  id="img1"> 
+	<img src="201567.png">
+</div>			 
+	<!-- <div id="register">			
+<p id="register">REGISTER NEW STUDENT</p></div> -->
+
+<div id="form">
+	<!-- <input type="text" id="text"> -->
+	<form method="POST" action="insertnewstudentbackend.php"  name="form1" >
 						
-						<label>Student ID:</label>
-						<!-- <label id="text" ><?php echo "SID_" .($rows);?></label><br> -->
-						<input  type="text" name="bid" id="bid" value="<?php echo $studentid;?> "readonly ><br>
-						<label>Student Name:</label>
-						<input type="text" name="bname" id="bname" required><br>
+	<label>Student ID:</label>
+	<label id="text" name="text1"><?php echo ($studentid);?></label><br>
+	<!-- <input  type="text" name="bid" id="bid" value="<?php echo $studentid;?> "readonly ><br> -->
+	<label>Student Name:</label>
+	<input type="text" name="bname" id="bname" required><br>
 						<label>Contact:</label>
 						<input type="text" name="contact" id="bname1" required><br>
 						<label>Department:</label>
@@ -172,7 +184,7 @@
 
 								
             
-        </div>
+        
 		<div id="displayErrorBox">
 					<?php 
 						
@@ -191,5 +203,8 @@
 					unset($_SESSION['issueSucess']);
 				}
 			?>	
+
+			</div>
+		</div>
 </body>
 </html>

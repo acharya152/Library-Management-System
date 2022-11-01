@@ -1,5 +1,5 @@
   body{
-    background-color: rgb(3, 138, 210);
+    /*background-color: rgb(3, 138, 210);*/
   }
   .content{
     width: 350px;
@@ -20,7 +20,7 @@
     width: 50%;
   
     padding: 5px 10px;
-   border: 5px solid #414e66;
+   border: 3px solid white;
    border-radius: 20px;
     font-size: 17px;
    
@@ -39,9 +39,9 @@
   }
    #bname1{
     width: 50%;
-  
+    margin-top: 0.5vh;
     padding: 5px 10px;
-   border: 5px solid #414e66;
+   border: 3px solid white;
    border-radius: 20px;
     font-size: 17px;
    
@@ -49,10 +49,10 @@
     
   }
     #bname2{
-    width: 50%;
-  
-    padding: 5px 10px;
-   border: 5px solid #414e66;
+    width: 55%;
+    /*margin-left: 12vw;*/
+    padding: 5px 17px;
+   border: 3px solid white;
    border-radius: 20px;
     font-size: 17px;
    
@@ -63,14 +63,15 @@
     width: 30%;
   
     padding: 5px 10px;
-   border: 5px solid #414e66;
+   border: 2px solid white;
    border-radius: 20px;
     font-size: 17px;
-    color: #414e66;
+    color: white;
         font-family: "Impact";
         position: absolute;
         right: 70%;
         top: 105%;
+        background-color: yellowgreen;
 
    }
 
@@ -212,11 +213,18 @@ img{
     /* border:1px solid black; */
     font-size: 35px;
     color: #414e66;
-    padding-top: 15%;
+    padding-top: 13%;
     padding-left: 35%;
+    background-color: #414e66;
+    height: 50vh;
+    width: 25vw;
+    left: 20vw;
+    border-radius: 20px;
+    color: white;
+
    
     
-   ;
+   
 
 
 }
@@ -245,19 +253,19 @@ margin-right: 1%;
 
 }
 #displayErrorBox{
-	/* background-color: red; */
+	 /*background-color: red; */
 	/* z-index: 3; */
 	position: absolute;
 	visibility: hidden;
-	top: 80vh;
+	top: 40vh;
   left: 30vw;
-	width: 50%;
-	height: 20%;
-	color:rgb(179, 10, 10) ;
-	font-size: larger;
+	width: 20%;
+	height: 4%;
+	color:yellowgreen;
+	font-size: large;
 }
 #register{
-color: indianred;
+color: yellowgreen;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -269,4 +277,19 @@ label{
 input{
   display: inline;
   position: absolute;
+}
+
+#img1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*position: absolute;*/
+  height: 25vh;
+}
+#mainbox{
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -19,7 +19,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 						
 		else{			
 					// echo"hello";
-					$sid=$_POST['bid'];
+					$sid=$_SESSION['passstudentid'];
 					$sname=$_POST['bname'];
 					$contact=$_POST['contact'];
 					$depart=$_POST['dept'];
