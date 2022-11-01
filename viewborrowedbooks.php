@@ -32,16 +32,25 @@ $db="libraryms";
 
 				}
 
-				function fun4(){
-					
-				//renewall
-				location.href="./renewBook.php?renewAll=1"
-				}
-
-
 					</script>
 </head>
 <body>
+
+<div id="showSelectedStudent">
+		<?php if(isset($_SESSION['sid'])){?>
+			<a href="insertrec.php">
+				Member: 
+					<?php echo $_SESSION['sid']."_ ".$_SESSION['studentname'];?>
+			</a>
+		<?php
+			}else{
+		?>
+			<a href="insertrecteacher.php">
+				Member: 
+					<?php echo $_SESSION['tid']."_ ".$_SESSION['studentname'];?>
+			</a>
+		<?php } ?>
+		</div>
 
 	<div id="dashbody" onclick="fun2()">
 		<div id="dashboardpanel">
@@ -323,7 +332,6 @@ while($rows=mysqli_fetch_assoc($result2)){
 		<label>No of overdue books:</label><br>
 		<label id="num"><?php echo($count)?></label><br><br>
 		<button id="btn1" onclick="fun3()">Remove All </button>
-		<button id="btn2" onclick="fun4()">Renew All </button>
 	</div>
 	<div id="fine">
 

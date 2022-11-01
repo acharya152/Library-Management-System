@@ -39,6 +39,24 @@ body{
 	
 
 }
+#showSelectedStudent{
+	/* border: 1px solid red; */
+	text-align: right;
+	padding-right: 1%;
+	padding-top: 1%;
+	color: #414e66;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-style: bold;
+	font-size: larger;
+	z-index: 2;
+	position: absolute;
+	top: 10vh;
+	right: 2vw;
+}
+#showSelectedStudent a{
+	color: #414e66;
+}
+
 /*#sidepanel{
 	background-color:#414e66;
 	width: 20%;
