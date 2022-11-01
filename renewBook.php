@@ -58,7 +58,7 @@ echo($result);
 // if(isset($_SESSION['renewAll'])){   
 //     unset($_SESSION['renewAll']);
 // }   
-header("location:".$_SERVER['HTTP_REFERER']);
+header("location:viewborrowedbooks.php");
 
 ?>
 

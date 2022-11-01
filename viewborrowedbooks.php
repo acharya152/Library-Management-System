@@ -179,7 +179,7 @@ $db="libraryms";
 							</div>
 			<div  id="issuebutton">
 
-				<a href="./renewBook.php?barcode=<?php echo($barcode)?>" class="issuebtn" >
+				<a href="./confirmrenew.php?barcode=<?php echo($barcode)?>" class="issuebtn" >
 									<b>Renew</b>
 								</a>
 			</div>
@@ -290,7 +290,7 @@ while($rows=mysqli_fetch_assoc($result2)){
 							</div>
 			<div  id="issuebutton">
 
-				<a href="./renewBook.php?barcode=<?php echo($barcode)?>" class="issuebtn">
+				<a href="./confirmrenew.php?barcode=<?php echo($barcode)?>" class="issuebtn">
 									<b>Renew</b>
 								</a>
 			</div>
