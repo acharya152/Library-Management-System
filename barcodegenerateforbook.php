@@ -128,6 +128,7 @@
 						<label>Book ID:</label>
 						<!-- <label id="text" ><?php echo ($rows);?></label><br> -->
 						<input type="text" name="bid" id="bid" required><br>
+
 						<label>Book Name:</label>
 						<input type="text" name="bname" id="bname" required><br>
 						<label>Author Name:</label>

@@ -235,19 +235,86 @@ img{
 }
 .bk1{
 	position: absolute;
-	height: 40%;
-	top: 32%;
-	left: 79%;
+	height: 27vh;
+	
+	top: 7vh;
+	/*left: 13vw;*/
+	/*background-color: green;*/
+	width: 27vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .bk2{
 	position: absolute;
-	height: 45%;
-	top: 30%;
-	left: 45%;
+	height: 27vh;
+	
+	top: 7vh;
+	/*left: 13vw;*/
+	/*background-color: green;*/
+	width: 27vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .bk3{
 	position: absolute;
-	height: 12vh;
+	height: 29vh;
+	
+	top: 6vh;
+	/*left: 13vw;*/
+	/*background-color: green;*/
+	width: 27vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.bk4{
+	position: absolute;
+	height: 27vh;
+	
 	top: 7vh;
-	left: 14vw;
+	/*left: 13vw;*/
+	/*background-color: green;*/
+	width: 27vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.bk6{
+
+	position: absolute;
+	height: 27vh;
+	
+	top: 7vh;
+	/*left: 13vw;*/
+	/*background-color: green;*/
+	width: 27vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+div.bookdetails:hover{
+
+	 -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 10px 10px  10px black;
+
+}
+div.feature2:hover{
+
+	 -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 10px 10px  10px black;
+
+}
+div.feature3:hover{
+
+	 -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 10px 10px  10px black;
+
 }

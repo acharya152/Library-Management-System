@@ -268,3 +268,8 @@ input{
   display: inline;
   position: absolute;
 }
+
+#gen{
+  background-color: green;
+  color: red;
+}

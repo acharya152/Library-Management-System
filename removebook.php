@@ -18,6 +18,7 @@ if(!$con){
 
 if (isset($_SESSION['sid'])){
     if(isset($_SESSION['removeAll'])){
+        echo $_SESSION['sid'];
         $sql = "DELETE from borrowedbook_data where sid=".$_SESSION['sid'];
     }else{
         $sql = "DELETE from borrowedbook_data where barcode=".$_SESSION['Rbarcode'];

@@ -34,6 +34,8 @@
    border: 5px solid #414e66;
    border-radius: 20px;
     font-size: 17px;
+    color: orangered;
+    font-weight: bold;
   }
    #bname1{
     width: 50%;
@@ -111,7 +113,7 @@
     border-radius: 3px;
   }
   #text{
-    color: orangered;
+    color: indianred;
   }
   *{
   margin: 0px;

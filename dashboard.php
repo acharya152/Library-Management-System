@@ -84,43 +84,43 @@ include("unsetBookSessions.php");
 
 		<div id="main_body">
 
-			<div class="bookdetails">
-				<div class="t1">
-					<p>STUDENTS RECORD</p>
+			<div class="bookdetails" onclick="func1()">
+				<!-- <div class="t1"> -->
+					<p class="t1">STUDENTS RECORD</p>
+				<!-- </div> -->
+				<div class="bk3">
+							<img src="icon1.png" >
 				</div>
-				<!-- <div class="book3">
-							<img src="book.png" class="bk3">
-				</div> -->
-				<div class="btn1" onclick="func1()" target="_blank">
+				<!-- <div class="btn1" onclick="func1()" target="_blank">
 							<p id="click">Click Here</p>
-				</div>
+				</div> -->
 					
 				</div>
 
-			<div class="feature2">
+			<div class="feature2" onclick="func2()">
 				<div class="t1">
 					<p>TEACHERS RECORD</p>
 				</div>
-				<!-- <div class="book2">
-							<img src="openbook.png" class="bk2">
-				</div> -->
-				<div class="btn1" onclick="func2()" target="_blank">
-							<p id="click">Click Here</p>
+				<div class="bk2">
+							<img src="206897.png" >
 				</div>
+				<!-- <div class="btn1" onclick="func2()" target="_blank">
+							<p id="click">Click Here</p>
+				</div> -->
 					
 				</div>
 
-			<div class="feature3">
+			<div class="feature3" onclick="func2()">
 				<div class="t1">
 					<p> BOOKS RECORD </p>
 				</div>
-				<!-- <div class="book1">
-							<img src="book.png" class="bk1">
-				</div> -->
-				
-				<div class="btn1" onclick="func2()" target="_blank">
-							<p id="click">Click Here</p>
+				<div class="bk1">
+							<img src="562132.png" >
 				</div>
+				
+				<!-- <div class="btn1" onclick="func2()" target="_blank">
+							<p id="click">Click Here</p>
+				</div> -->
 					
 				</div>
 
@@ -129,43 +129,43 @@ include("unsetBookSessions.php");
 		
 	<div id="main_body2">
 
-			<div class="bookdetails">
+			<div class="bookdetails" onclick="func4()">
 				<div class="t1">
 					<p>INSERT NEW STUDENT</p>
 				</div>
-				<!-- <div class="book3">
-							<img src="write.png" class="bk3">
-				</div> -->
-				<div class="btn2" onclick="func4()" target="_blank" >
-							<p id="click2">Click Here</p>
+				<div class="bk4">
+							<img src="201567.png" >
 				</div>
+				<!-- <div class="btn2" onclick="func4()" target="_blank" >
+							<p id="click2">Click Here</p>
+				</div> -->
 					
 				</div>
 
-			<div class="feature2">
+			<div class="feature2" onclick="func5()">
 				<div class="t1">
 					<p>INSERT NEW TEACHER</p>
 				</div>
-				<!-- <div class="book2">
-							<img src="openbook.png" class="bk2">
-				</div> -->
-				<div class="btn2" onclick="func5()" target="_blank">
-							<p id="click2">Click Here</p>
+				<div class="bk2">
+							<img src="426327.png" >
 				</div>
+				<!-- <div class="btn2" onclick="func5()" target="_blank">
+							<p id="click2">Click Here</p>
+				</div> -->
 					
 				</div>
 
-			<div class="feature3">
+			<div class="feature3" onclick="func3()">
 				<div class="t1">
 					<p> INSERT NEW BOOKS </p>
 				</div>
-				<!-- <div class="book1">
-							<img src="book.png" class="bk1">
-				</div> -->
-				
-				<div class="btn2" onclick="func3()" target="_blank">
-							<p id="click2">Click Here</p>
+				<div class="bk6">
+							<img src="1903162.png" >
 				</div>
+				
+				<!-- <div class="btn2" onclick="func3()" target="_blank">
+							<p id="click2">Click Here</p>
+				</div> -->
 					
 				</div>
 

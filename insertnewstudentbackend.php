@@ -17,7 +17,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 		echo "Not connected".mysqli_connect_error();
 				}
 						
-		else{
+		else{			
 					// echo"hello";
 					$sid=$_POST['bid'];
 					$sname=$_POST['bname'];
@@ -78,7 +78,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 	<div class="print-area">
 	 <svg id="barcode"  onclick="window.print()"></svg>
 		<script type="text/javascript">
-				JsBarcode("#barcode",<?php echo("$sid") ?>);
+				JsBarcode("#barcode","<?php echo("$sid") ?>");
 		</script>
 
 		<p><b>CLICK ON THE BARCODE TO PRINT IT!!</b></p>							
@@ -90,3 +90,5 @@ $con=mysqli_connect($host,$user,$password,$db);
 
 	</body>
 </html>
+
+<!--  -->

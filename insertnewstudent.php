@@ -31,8 +31,12 @@
  </style>
  <script type="text/javascript">
  	window.onload=function fun1(){
-						document.getElementById("bid").focus();
+						document.getElementById("bname").focus();
+						document.forms['form1'].reset();
+
 				}
+
+
  </script>
 
  <link rel="stylesheet" type="text/css" href="insertstudentcss.css">
@@ -70,16 +74,43 @@
 
 
 			<div id="input" >
+				<?php 
+						$host="localhost";
+						$user="root";
+						$password="";
+						$db="libraryms";
+						
+
+						$con=mysqli_connect($host,$user,$password,$db);
+						if(!$con){
+						echo "Not connected".mysqli_connect_error();
+						}
+						// if(isset($_SESSION['logged'])){
+						//   header("Location: ./dashboard.php");
+
+						// }
+						else{
+						
+						// to get total existing books in library  
+
+						$sql="select * from student_data"; 
+
+						  $checkindb=mysqli_query($con,$sql);
+						  $rows=mysqli_num_rows($checkindb)+1;
+						  $studentid=($rows);
+						 }
+
+						?> 
 						 
 	<div id="register">			
 <p id="register">REGISTER NEW STUDENT</p></div>
 <div id="form"><br>
 						<!-- <input type="text" id="text"> -->
-						<form method="POST" action="insertnewstudentbackend.php" >
+						<form method="POST" action="insertnewstudentbackend.php" name="form1" >
 						
 						<label>Student ID:</label>
-						<!-- <label id="text" ><?php echo ($rows);?></label><br> -->
-						<input type="text" name="bid" id="bid" required><br>
+						<!-- <label id="text" ><?php echo "SID_" .($rows);?></label><br> -->
+						<input  type="text" name="bid" id="bid" value="<?php echo $studentid;?> "readonly ><br>
 						<label>Student Name:</label>
 						<input type="text" name="bname" id="bname" required><br>
 						<label>Contact:</label>
