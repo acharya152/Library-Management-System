@@ -47,6 +47,7 @@
   <script type="text/javascript">
  	window.onload=function fun1(){
 						document.getElementById("bid").focus();
+						document.forms['form1'].reset();
 				}
  </script>
  <script type="text/javascript">
@@ -86,7 +87,7 @@
 								</div>
 			
 		</div>
-
+<div id="mainbox">
 	
 		<div id="addNewFeature">
 
@@ -118,22 +119,23 @@
 						//  }
 
 						?> 
-				<div id="register">			
-<p id="register">REGISTER NEW BOOK</p></div>
-<div id="form"><br>
+	<div  id="img1"> 
+	<img src="1903162.png">
+</div>			
+<div id="form">
 
 						<!-- <input type="text" id="text"> -->
-						<form method="POST" action="insertnewbookbackend.php" >
+						<form method="POST" action="insertnewbookbackend.php" name="form1">
 						
-						<label>Book ID:</label>
+						<label id="l1">Book ID:</label>
 						<!-- <label id="text" ><?php echo ($rows);?></label><br> -->
-						<input type="text" name="bid" id="bid" required><br>
+						<input type="text" name="bid" id="bid" placeholder="Enter the book isbn number"required><br>
 
-						<label>Book Name:</label>
+						<label id="l2">Book Name:</label>
 						<input type="text" name="bname" id="bname" required><br>
-						<label>Author Name:</label>
+						<label id="l3">Author Name:</label>
 						<input type="text" name="autname" id="bname1" required><br>
-						<label>No of Books:</label>
+						<label id="l4">No of Books:</label>
 						<input type="text" name="noofbooks" id="bname2" required><br>
 						<!-- <label>Date:</label>
 						<input type="date" name="doinsert" id="date" required><br> -->
@@ -186,5 +188,6 @@
 					unset($_SESSION['issueSucess']);
 				}
 			?>	
+		</div>
 </body>
 </html>
