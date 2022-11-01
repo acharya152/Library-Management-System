@@ -52,7 +52,12 @@ include("unsetBookSessions.php");
 
 
 					}
+					function func6(){
+						location.href="bookrecord.php";
+						// location.href="insertbook.html";
 
+
+					}
 
 
 
@@ -111,7 +116,7 @@ include("unsetBookSessions.php");
 					
 				</div>
 
-			<div class="feature3" onclick="func2()">
+			<div class="feature3" onclick="func6()">
 				<div class="t1">
 					<p> BOOKS RECORD </p>
 				</div>

@@ -107,15 +107,15 @@
 						//   header("Location: ./dashboard.php");
 
 						// }
-						else{
+						// else{
 						
 						// to get total existing books in library  
 
-						$sql="select * from books_data"; 
+						// $sql="select * from books_data"; 
 
-						  $checkindb=mysqli_query($con,$sql);
-						  $rows=mysqli_num_rows($checkindb)+1;
-						 }
+						//   $checkindb=mysqli_query($con,$sql);
+						//   $rows=mysqli_num_rows($checkindb)+1;
+						//  }
 
 						?> 
 				<div id="register">			

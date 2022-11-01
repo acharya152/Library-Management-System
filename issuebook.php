@@ -75,7 +75,7 @@ if(!isset($_SESSION['logged'])){
 				<input type="text" name="SearchId" class="inpt1" placeholder="ENTER YOUR BOOK ID" required >
 				<input type="submit" value="Search" class="inpt2"> -->
 
-				<label id="label1">Book ID:</label>
+				<label id="label1">BARCODE ID:</label>
 				<form method="POST" action="issuebookdb.php" >
 				<input type="text" name="SearchId" class="inpt1" id="inpts1" placeholder="ENTER YOUR BOOK BARCODE" required >
 				<input type="submit" value="Search" class="inpt2">
@@ -122,7 +122,7 @@ if(!isset($_SESSION['logged'])){
 			?>	
 			<div id="bookdisplaybox">
 							<div class="namediv">
-							<label>Book Id:</label>
+							<label>Barcode:</label>
 							<?php if(isset($_SESSION['bid'])){
 
 							echo	$_SESSION['barcode'];

@@ -24,7 +24,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 					$authname=$_POST['autname'];
 					$no=$_POST['noofbooks'];
 				$sql="insert into books_data values('$bid','$bname','$authname')"; 
-				$sql2 = "insert into books_inventory values('$bid','$no')";
+				$sql2 = "insert into books_inventory values('$bid','$no',1)";
 
 
 				
