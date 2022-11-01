@@ -17,7 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Insert A Book</title>
 	<!-- <link rel="stylesheet" type="text/css" href="./newFeature.css"> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.3/JsBarcode.all.min.js"></script>
+	<script src="barcodescript.js"></script>
  <style type="text/css">
       @media print {
     #text {

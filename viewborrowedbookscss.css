@@ -13,7 +13,9 @@ body{
 #dashbody{
 	background-image: url("bg9.jpg");
 	background-size: cover;
+	background-repeat: repeat;
 	position: absolute;
+	height: 100vh;
 	top: 0px;
 	bottom: 0px;
 	right: 0px;

@@ -25,7 +25,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 
 <html>
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.3/JsBarcode.all.min.js"></script>
+<script src="barcodescript.js"></script>
 <link rel="stylesheet" type="text/css" href="displaybarcode.css">
 </head>
 

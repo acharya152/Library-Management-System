@@ -175,7 +175,7 @@
 
 				</div>
 				<div  id="genbutton">
-					<a href="./barcodeforAllLibrarybooks.php?bid=<?php echo($bid)?>" class="viewbtn">
+					<a href="./barcodeforAllLibrarybooks.php?bid=<?php echo($bid)?>" class="viewbtn" target="_blank">
 					
 										<b>Generate Barcodes</b>
 									</a>

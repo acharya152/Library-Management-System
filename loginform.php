@@ -33,6 +33,7 @@ if(isset($_POST['username'])){
   $sql="select * from admin_data where Username='".$usrname."' AND Password='".$pass."' limit 1";
 
   $checkindb=mysqli_query($con,$sql);
+  var_dump($checkindb);
   if(mysqli_num_rows($checkindb)==1){
     session_start();
     $_SESSION['logged']="true";
