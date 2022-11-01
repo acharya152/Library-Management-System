@@ -1,0 +1,226 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	
+}
+#dashbody{
+	background-image: url("bg9.jpg");
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	
+}
+#dashboardpanel{
+	background-color:#dde8ed;
+	height: 10%;
+	width: 100%;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+
+	
+	
+	
+	
+	
+
+}
+.lgnout{
+
+	display: flex;
+	align-items: center;
+	height: 70%;
+background-color: #414e66;
+margin-right: 1%;
+	padding-right: 1%;
+	padding-left: 1%;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-style: bold;
+	border-radius: 20px;
+
+}
+
+a:link { text-decoration: none;
+ }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none;
+ }
+
+
+a:active { text-decoration: none; }
+
+a{
+	color: white;
+
+}
+.admnname{
+	
+	height: 90%;
+	width: 15%;
+	text-align: center;
+	margin-right: 2%;
+	border-radius: 20px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 120%;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	color: #665941;
+	padding-right: 1%;
+}
+img{
+	border-radius: 70%;
+	height: 70%;
+	margin-right: 7%;
+	position: relative;
+
+}
+
+.logo{
+	height: 450%;
+	position: relative;
+	top: 70%;
+	right: 52.3%;
+}
+
+#main_body{
+	/* border:  1px solid green; */
+	display: flex;
+	justify-content: space-around;
+	height: 50%;
+	position: relative;
+	top: 15%;
+	z-index: 0;
+	
+
+
+}
+#studentdisplaybox{
+    background-color: #414e66;
+    margin-top: 5%;
+    margin-bottom: 2%;
+        position: relative;
+        left: 27%;
+        width: 45%;
+        height: 60%;
+        text-align: left;
+        padding-top: 2%;
+        border-radius: 20px;
+        
+        font-size: 130%;
+        visibility: visible;
+    
+    }
+    #searchPanel{
+        /* position: absolute; */
+        
+        width: 100%;
+        text-align: center;
+        height: 100%;
+        
+        }
+        #label1{
+            font-size: 270%;
+                font-family: "Impact";
+                color: #414e66;
+                position: absolute;
+                right: 77%;
+                top: 2%;
+        
+        
+        
+        
+        }
+        .inpt1{
+            width: 50%;
+            padding:1.5%;
+            border-radius: 20px;
+            border: 5px solid #414e66;
+            right: 22%;
+            position: absolute;
+        
+        
+        }
+        .inpt2{
+            width: 10%;
+            padding: 1.5%;
+            border-radius: 20px;
+            color: whitesmoke;
+            font-family:"Impact";
+            background-color: #414e66;
+            font-size: 100%;
+            border: none;
+            right: 10%;
+            position: absolute;
+        
+        
+        }
+        .dshboard{
+        
+            display: flex;
+            align-items: center;
+            height: 70%;
+        background-color: indianred;
+        margin-right: 1%;
+            padding-right: 1%;
+            padding-left: 1%;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-style: bold;
+            border-radius: 20px;
+        
+        }
+        #bookDisplayBox{
+            /*border: 1px solid darkred;*/
+            background-color: green;
+            position: absolute;
+            bottom: 0px;
+            height: 25%;
+            width: 100%;
+        }
+        .contactdiv{
+            padding-top: 1%;
+            padding-left: 5%;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-style: bold;
+            color: floralwhite;
+        }
+        .yeardiv{
+            padding-top: 1%;
+            padding-left: 5%;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-style: bold;
+            color: floralwhite;
+        }
+
+        #displayErrorBox{
+            /* background-color: red; */
+            /* z-index: 3; */
+            position: absolute;
+            visibility: hidden;
+            top: 25%;
+            width: 50%;
+            height: 20%;
+            color:rgb(179, 10, 10) ;
+            font-size: medium;
+        }
+
+        .namediv{
+            padding-left: 5%;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-style: bold;
+            color: floralwhite;
+        }

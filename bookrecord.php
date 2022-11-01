@@ -14,7 +14,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="insertrec.css">
+	<link rel="stylesheet" type="text/css" href="bookrecord.css">
 	<title></title>
 	<!-- to set focus on searchpanel despite clicking anywhere on the screen -->
 		<script type="text/javascript">
@@ -90,27 +90,77 @@
             $result = mysqli_query($con,$sql);
             if(mysqli_num_rows($result)>0){
                 $rows = mysqli_num_rows($result);
-                $book = mysqli_fetch_assoc($result);
+                
             }else{ 
                 $sql="select * from books_data where bid='$searchid'";
                 $result = mysqli_query($con,$sql);
                 if(mysqli_num_rows($result)>0){
                     $rows = mysqli_num_rows($result);
-                    $book = mysqli_fetch_assoc($result);
+           
                 }else{
                     $sql="select * from books_data where autname='$searchid'";
                     $result = mysqli_query($con,$sql);
                     if(mysqli_num_rows($result)>0){
                         $rows = mysqli_num_rows($result);
-                        $book = mysqli_fetch_assoc($result);
+
                     }else{
                         echo"no books found";
                     }
                 }
             }
-           while()
-        }
-    }
+
+           while($next=mysqli_fetch_assoc($result)){
+			var_dump($next);
+			$bname=$next['bname'];
+			$bid=$next['bid'];
+			$autname=$next['autname'];
+
+				
+ ?>
+ 
+
+				<div id="studentdisplaybox">
+								<div class="namediv">
+								<label>ISBN:</label>
+								<?php 
+									echo($bid);
+								?>
+								
+								</div>
+					<br>
+								<div class="contactdiv">
+								<label>Book Name:</label>
+								<?php 
+									echo($bname);
+								?>
+								
+								</div>
+					<br>
+								<div class="yeardiv">
+								<label>Author Name:</label>
+								<?php 
+									echo($autname);
+								?>
+				<div  id="issuebutton">
+
+					<a href="./renewBook.php?barcode=<?php echo($barcode)?>" class="issuebtn" >
+										<b>Renew</b>
+									</a>
+				</div>
+				<div  id="viewbutton">
+					<a href="./calculatefine.php?barcode=<?php echo($barcode)?>" class="viewbtn">
+					
+										<b>Remove</b>
+									</a>
+
+				</div>
+
+<?php 
+ }
+}
+
+		   }
+        
 ?>
 
 			<div id="displayErrorBox">
