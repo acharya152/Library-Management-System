@@ -92,9 +92,10 @@ $db="libraryms";
 				
 
 				
-					$count=0;
 
 					if(isset($_SESSION['sid'])){
+					$count=0;
+
 						// echo "hello";
 						$sql1 = 'select * from borrowedbook_data where sid="'.$_SESSION['sid'].'"';
 						$result1 = mysqli_query($con,$sql1);
@@ -111,12 +112,26 @@ $db="libraryms";
 					
 
 					$datet =getdate();
+					if($datet['mday']<10){
+					$datetoday = $datet['year']."-".$datet['mon']."-0".$datet['mday'];
+					}else{
 					$datetoday = $datet['year']."-".$datet['mon']."-".$datet['mday'];
+												
+					}
+					// $datetoday = "2022-10-12";
+					// echo $datetoday;
+					// echo '';
+					// echo $duedate;
+					// var_dump($datetoday);
+   // var_dump($duedate);
 					
 					
 
 					if($datetoday>$duedate){
+						// echo (date_diff($datetoday,$duedate));
+
 						$count+=1;
+						// echo $count;
 
 					}
 
@@ -202,6 +217,7 @@ $db="libraryms";
 
 
 	elseif(isset($_SESSION['tid'])){
+		$count=0;
 		$sql2 = 'select * from teacherborrowedbook_data where tid="'.$_SESSION['tid'].'"';
 
 				

@@ -32,6 +32,8 @@ if(mysqli_num_rows($result)>0){
     $today = $datet['year']."-".$datet['mon']."-".$datet['mday'];
     // echo $today;
     $datetoday = date_create($today);
+
+   
     
     if($datetoday>$duedate){
         
@@ -52,8 +54,8 @@ if(mysqli_num_rows($result)>0){
 $_SESSION['fineAmount']=$totalfine;
 $_SESSION['removeAll']=true;
 }else{
-    $_SESSION['dberror']="No books available to remove";
+    $_SESSION['dberror']="* No books available to remove.";
 }
-header("location:".$_SERVER['HTTP_REFERER']);
+// header("location:".$_SERVER['HTTP_REFERER']);
 ?>
 

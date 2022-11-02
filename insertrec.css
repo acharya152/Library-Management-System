@@ -150,6 +150,17 @@ img{
 	color:rgb(179, 10, 10) ;
 	font-size: medium;
 }
+#success{
+	/* background-color: red; */
+	/* z-index: 3; */
+	position: absolute;
+	visibility: hidden;
+	top: 25%;
+	width: 50%;
+	height: 20%;
+	color:green;
+	font-size: medium;
+}
 #studentdisplaybox{
 background-color: #414e66;
 
@@ -321,6 +332,34 @@ height: 20%;
 	visibility: visible;
 }
 
+#changebutton{
+	z-index: 1;
+	position: absolute;
+	top: 108%;
+	left: 55%;
+	background-color: indianred;
+	height: 10%;
+	width: 10%;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 100%;
+	padding-top: 15px;
+	visibility: visible;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: whitesmoke;
+}
+#changebutton2{
+position: absolute;
+top: 80%;
+left: 67%;
+background-color: yellowgreen;
+height: 20%;
+	width: 10%;
+	border-radius: 20px;
+	text-align: center;
+	padding-top: 10px;
+	visibility: visible;
+}
 #issuebutton a {
 	font-size: 130%;
 	padding-top: 9%;

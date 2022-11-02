@@ -131,22 +131,22 @@
 						<!-- <input type="text" name="dept" id="bname2" required><br> -->
 						<select id="bname2" name="dept" required>
 							<option value="" selected disabled>Choose Department</option>
-							<option value="computer">Computer</option>
-							<option value="it">IT</option>
-							<option value="civil">Civil</option>
+							<option value="Computer">Computer</option>
+							<option value="IT">IT</option>
+							<option value="Civil">Civil</option>
 					</select>
-						<label>Year:</label>
+						<label>Semester:</label>
 						<select id="bname2" name="year" required>
 							<!-- <option selected disabled>Choose year and semester</option> -->
-							<option value="" selected disabled>Choose year and semester</option>
-							<option value="1st year/ 1st semester">1st year/ 1st semester</option>
-							<option value="1st year/ 2nd semester">1st year/ 2nd semester</option>
-							<option value="2nd year/ 3rd semester">2nd year/ 3rd semester</option>
-							<option value="2nd year/ 4th semester">2nd year/ 4th semester</option>
-							<option value="3rd year/ 5th semester">3rd year/ 5th semester</option>
-							<option value="3rd year/ 6th semester">3rd year/ 6th semester</option>
-							<option value="4th year/ 7th semester">4th year/ 7th semester</option>
-							<option value="4th year/ 8th semester">4th year/ 8th semester</option>
+							<option value="" selected disabled>Choose semester</option>
+							<option value=" 1">1st semester</option>
+							<option value=" 2">2nd semester</option>
+							<option value=" 3">3rd semester</option>
+							<option value=" 4">4th semester</option>
+							<option value=" 5">5th semester</option>
+							<option value=" 6">6th semester</option>
+							<option value=" 7">7th semester</option>
+							<option value=" 8">8th semester</option>
 
 						</select>
 						<!-- <input type="text" name="noofbooks" id="bname2" required><br> -->

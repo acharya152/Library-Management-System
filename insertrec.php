@@ -89,6 +89,9 @@
 			<div id="displayErrorBoxforremoveddata">
 				*Student removed successfully.
 			</div>
+			<div id="success">
+				*Updated details successfully.
+			</div>
 			<?php 
 				if(isset($_SESSION['deleted'])){
 					echo "<script src='showerrorboxforstudentremoved.js'></script>";
@@ -111,6 +114,14 @@
 				}
 			?>
 
+				<?php 
+				if(isset($_SESSION['success'])){
+
+					echo "<script src='showsuccessbox.js'></script>";
+					unset($_SESSION['success']);
+					// include("unsetTeacherStudentSessions.php");
+				}
+			?>
 
 
 
@@ -143,10 +154,10 @@
 							</div>
 				<br>
 							<div class="yeardiv">
-							<label>Year:</label>
+							<label>Semester:</label>
 							<?php if(isset($_SESSION['year'])){
 
-							echo $_SESSION['year'];
+							echo $_SESSION['year']."-Sem";
 ;
 							} ?>
 							</div>
@@ -161,6 +172,21 @@
 							</div>
 				<br>
 			</div>
+
+			<div id="changebutton">
+				
+						<a href="./updateStudentDetails.php" class="viewbtn">
+				<!-- <a href="./borrowedbook.php" class="viewbtn"> -->
+									<b>Update Details<b>
+								</a>
+			</div>
+			<!-- <div id="changebutton2">
+				
+						<a href="./updateStudentDetails.php" class="viewbtn">
+				<a href="./borrowedbook.php" class="viewbtn">
+									<b>Update C</b>
+								</a>
+			</div> -->
 
 
 			<div  id="issuebutton">
@@ -195,7 +221,7 @@
 
 	</div>
 
-	->
+	
 
 		
 </body>

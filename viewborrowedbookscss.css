@@ -156,10 +156,12 @@ img{
 	position: absolute;
 	visibility: hidden;
 	top: 25%;
-	width: 50%;
-	height: 20%;
-	color:rgb(179, 10, 10) ;
-	font-size: medium;
+	left: 35%;
+	/*width: 50%;*/
+	/*height: 50%;*/
+	color: indianred;
+	/*color:rgb(179, 10, 10) ;*/
+	font-size: xx-large;
 }
 #sucess{
 	color: green;

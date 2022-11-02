@@ -23,12 +23,18 @@
 					echo "Not connected".mysqli_connect_error();
 					}
 					else{
-						if(isset($_POST['SearchId'])){
+						
 
 							
 							// unset($_SESSION['errorMsg']);
 							
+							if(isset($_SESSION['sid'])){
+								$studentid=$_SESSION['sid'];
+							}
+							else{
 							$studentid=$_POST['SearchId'];
+								
+							}
 							$sql="select * from student_data where sid='".$studentid."'";
 							$checkindb=mysqli_query($con,$sql);
 						  if(mysqli_num_rows($checkindb)==1){
@@ -44,8 +50,8 @@
 							else{
 								$_SESSION['errorMsg']="true";
 							}
-						}
+						
 					}
 				
-					header("location:".$_SERVER['HTTP_REFERER']);
+					header("location:insertrec.php");
  ?> 
