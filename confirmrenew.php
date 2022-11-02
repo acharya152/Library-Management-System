@@ -7,10 +7,10 @@
 		header("location:dashboard.php");
 	}
 
-	if(isset($_SESSION['confirm'])){
-		unset($_SESSION['confirm']);
-		header("location:".$_SERVER['HTTP_REFERER']);
-	}
+	// if(isset($_SESSION['confirm'])){
+	// 	unset($_SESSION['confirm']);
+	// 	header("location:".$_SERVER['HTTP_REFERER']);
+	// }
 
  		?>	
 

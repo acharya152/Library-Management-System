@@ -3,10 +3,11 @@
 	if(!isset($_SESSION['logged'])){
  		header("Location:./loginform.php");
 
- 	}
-     if(isset($_GET['barcode'])){
-        $_SESSION['Rbarcode']=$_GET['barcode'];
     }
+    // $_SESSION['confirm']=true;
+    //  if(isset($_GET['barcode'])){
+    //     $_SESSION['Rbarcode']=$_GET['barcode'];
+    // }
 
 $host="localhost";
 $user="root";
