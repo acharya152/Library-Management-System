@@ -34,11 +34,32 @@ error_reporting(E_ALL);
 							$checkindb1=mysqli_query($con,$sql1);
 							$checkindb2=mysqli_query($con,$sql2);
 
-						// var_dump($checkindb);S
+						// var_dump($checkindb);
 							if((mysqli_num_rows($checkindb1)==1)||(mysqli_num_rows($checkindb2)==1)){
 								$_SESSION['dberror']="Books already issued to another member please try another book";
 
 							}else{
+								//checking inventory for available books
+								$sql4="select bid from books_barcode where barcode='$barcode'";
+								$sql4query=mysqli_query($con,$sql4);
+								$rowBID=mysqli_fetch_assoc($sql4query);
+
+								$bid=$rowBID["bid"];
+
+								$sql5 = "select no_totalBooks-no_issuedBooks as availableBooks from books_inventory where bid='$bid'";
+								$sql4query=mysqli_query($con,$sql5);
+								$rowNumBooks=mysqli_fetch_assoc($sql4query);
+								$numBooks= $rowNumBooks["availableBooks"];
+
+								echo $numBooks;
+								
+								if($numBooks==0){
+									$_SESSION['dberror']="No copies of selected book available to issue";
+
+								}else{
+
+								
+								
 							//checking if issuing to teacher or student
 									if(isset($_SESSION['sid'])){
 
@@ -77,7 +98,15 @@ error_reporting(E_ALL);
 										throw new Exception(mysqli_error($con));
 									}
 									else{
-										$_SESSION['issueSucess']="true";
+										$sql4="update books_inventory set no_issuedBooks=no_issuedBooks+1 where bid=$bid ";
+										$query = mysqli_query($con,$sql4);
+										if(!$query){
+											$_SESSION['dberror']= "couldnot update inventory";
+
+										}else{
+
+											$_SESSION['issueSucess']="true";
+										}
 									}
 								}catch(Exception $msg){
 									$_SESSION['dberror']= $msg->getMessage();
@@ -85,7 +114,7 @@ error_reporting(E_ALL);
 
 							}
 
-
+						}
 										
 					}
 					header("location:".$_SERVER['HTTP_REFERER']);
