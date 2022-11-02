@@ -1,0 +1,1 @@
+document.getElementById('borrowCount').style.color='indianred';

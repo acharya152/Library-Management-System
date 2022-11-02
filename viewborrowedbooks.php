@@ -40,14 +40,14 @@ $db="libraryms";
 
 <div id="showSelectedStudent">
 		<?php if(isset($_SESSION['sid'])){?>
-			<a href="insertrec.php">
+			<a href="insertrecBackend.php?sid=<?php echo($_SESSION['sid']);?>">
 				Member: 
 					<?php echo $_SESSION['sid']."_ ".$_SESSION['studentname'];?>
 			</a>
 		<?php
 			}else{
 		?>
-			<a href="insertrecteacher.php">
+			<a href="insertrecteacherBackend.php?tid=<?php echo($_SESSION['tid']);?>">
 				Member: 
 					<?php echo $_SESSION['tid']."_ ".$_SESSION['studentname'];?>
 			</a>

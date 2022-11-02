@@ -49,6 +49,8 @@
 						  	$_SESSION['contact']=$rows["Contact"];
 						  	$_SESSION['year']=$rows["Year"];
 						  	$_SESSION['department']=$rows["Depart"];
+						  	$_SESSION['borrowCount']=$rows["borrowCount"];
+
 							}
 							else{
 								$_SESSION['errorMsg']="true";

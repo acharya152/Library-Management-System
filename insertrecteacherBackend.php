@@ -22,12 +22,13 @@
 					echo "Not connected".mysqli_connect_error();
 					}
 					else{
-						if(isset($_POST['SearchId'])){
-
+						if(isset($_GET['sid'])){
+							$studentid=$_GET['sid'];
+						}
+						else{
+						$studentid=$_POST['SearchId'];
 							
-							// unset($_SESSION['errorMsg']);
-							
-							$studentid=$_POST['SearchId'];
+						}
 							$sql="select * from teacher_data where tid='".$studentid."'";
 							$checkindb=mysqli_query($con,$sql);
 						  if(mysqli_num_rows($checkindb)==1){
@@ -44,7 +45,7 @@
 								$_SESSION['errorMsg']="true";
 							}
 						}
-					}
+					
 				
 					header("location:".$_SERVER['HTTP_REFERER']);
  ?> 

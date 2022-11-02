@@ -23,16 +23,22 @@ if (isset($_SESSION['sid'])){
     if(isset($_SESSION['removeAll'])){
         // echo $_SESSION['sid'];
         $sql = "DELETE from borrowedbook_data where sid=".$_SESSION['sid'];
+        $sqlupdate = "update student_data set borrowCount=0 where sid=$sid";
     }else{
         $sql = "DELETE from borrowedbook_data where barcode=".$_SESSION['Rbarcode'];
+        $sqlupdate = "update student_data set borrowCount=borrowCount-1 where sid=$sid";
 
     }
 }elseif (isset($_SESSION['tid'])){
     $tid=$_SESSION['tid'];
     if(isset($_SESSION['removeAll'])){
         $sql = "DELETE from teacherborrowedbook_data where tid=".$_SESSION['tid'];
+        $sqlupdate = "update teacher_data set borrowCount=0 where tid=$tid";
+
     }else{
         $sql = "DELETE from teacherborrowedbook_data where barcode=".$_SESSION['Rbarcode'];
+        $sqlupdate = "update teacher_data set borrowCount=borrowCount-1 where tid=$tid";
+
 
     }
 }
@@ -68,6 +74,10 @@ if(isset($_SESSION['removeAll'])){
         if(!$result){
             throw new Exception(mysqli_error($con));
         }else{
+            $query=mysqli_query($con,$sqlupdate);
+            if(!$query){
+                throw new Exception(mysqli_error($con));
+            }
          //sucessmessage not rerquired?  
         }
     }catch(Exception $e){

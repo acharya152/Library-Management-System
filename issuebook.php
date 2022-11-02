@@ -3,10 +3,40 @@ session_start();
 if(!isset($_SESSION['logged'])){
  		header("Location:./loginform.php");
 
- 	}
-	// elseif(!isset($_SESSION['sid'])){
-	// 	header("Location:insertrec.php");
-	// }
+}
+if($_SESSION['borrowCount']>=9){
+	$_SESSION['errorforborrowCount']="Can't issue new book:Borrow limit exceeded";
+if(isset($_SESSION['sid'])){
+	header("Location:insertrec.php");
+}elseif(isset($_SESSION['tid'])){
+	header("Location:insertrecteacher.php");
+
+}
+}
+ 	// include("insertrecBackend.php");			
+					$host="localhost";
+					$user="root";
+					$password="";
+					$db="libraryms";
+
+
+					$con=mysqli_connect($host,$user,$password,$db);
+					if(!$con){
+					echo "Not connected".mysqli_connect_error();
+					}
+					else{
+						
+
+							
+							// unset($_SESSION['errorMsg']);
+							
+							
+
+					}
+	
+	if(!((isset($_SESSION['sid'])) ||  (isset($_SESSION['tid'])))){
+		header("Location:dashboard.php");
+	}
 	 
 ?>
 
@@ -52,14 +82,14 @@ if(!isset($_SESSION['logged'])){
 		</div>
 		<div id="showSelectedStudent">
 		<?php if(isset($_SESSION['sid'])){?>
-			<a href="insertrec.php">
+			<a href="insertrecBackend.php?sid=<?php echo($_SESSION['sid']);?>">
 				Member: 
 					<?php echo $_SESSION['sid']."_ ".$_SESSION['studentname'];?>
 			</a>
 		<?php
 			}else{
 		?>
-			<a href="insertrecteacher.php">
+			<a href="insertrecteacherBackend.php?tid=<?php echo($_SESSION['tid']);?>">
 				Member: 
 					<?php echo $_SESSION['tid']."_ ".$_SESSION['studentname'];?>
 			</a>

@@ -82,7 +82,9 @@
 			<div id="displayErrorBoxfordelete">
 				*The student you are trying to remove has books issued. 
 			</div>
-			
+			<div id="displayErrorBoxforBorrowCount">
+				*<?php echo($_SESSION['errorforborrowCount']);?>
+		</div>
 
 			
 
@@ -104,6 +106,14 @@
 				if(isset($_SESSION['errorMsg'])){
 					echo "<script src='showErrorBox.js'></script>";
 					include("unsetTeacherStudentSessions.php");
+				}
+			?>
+			<?php 
+				if(isset($_SESSION['errorforborrowCount'])){
+					echo "<script src='showerrorboxforborrowCount.js'></script>";
+					unset($_SESSION['errorforborrowCount']);
+
+					// include("unsetTeacherStudentSessions.php");
 				}
 			?>
 			<?php 
@@ -169,6 +179,20 @@
 							echo $_SESSION['department'];
 ;
 							} ?>
+							</div>
+							<div class="deptdiv">
+							<label>Borrow Count:</label>
+							<label id="borrowCount">
+
+								<?php if(isset($_SESSION['borrowCount'])){
+									
+									echo $_SESSION['borrowCount'];
+									if($_SESSION['borrowCount']==9){
+										echo "<script src='showcolor.js'></script>";
+										
+									}
+								} ?>
+							</label>
 							</div>
 				<br>
 			</div>

@@ -29,7 +29,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 					
 
 
-				$sql="insert into teacher_data values('$tid','$tname','$contact','$subject','$depart')"; 
+				$sql="insert into teacher_data values('$tid','$tname','$contact','$subject','$depart',0)"; 
 				try{
 				$checkindb=mysqli_query($con,$sql);
 					if(!$checkindb){

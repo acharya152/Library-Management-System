@@ -8,20 +8,44 @@ error_reporting(E_ALL);
  	if(!isset($_SESSION['logged'])){
  		header("Location:./loginform.php");
  	}
+	 $host="localhost";
+	 $user="root";
+	 $password="";
+	 $db="libraryms";
+	 $con=mysqli_connect($host,$user,$password,$db);
 
- 					$host="localhost";
-					$user="root";
-					$password="";
-					$db="libraryms";
-					$con=mysqli_connect($host,$user,$password,$db);
+	 if(!$con){
+		 $_SESSION['dberror']=("Not connected".mysqli_connect_error());
+		 header("location:issuebook.php");
 
-					if(!$con){
-						$_SESSION['dberror']=("Not connected".mysqli_connect_error());
-						header("location:issuebook.php");
+		}
+
+		 $studentid=$_SESSION['sid'];
+		 $sql="select * from student_data where sid='".$studentid."'";
+		 $checkindb=mysqli_query($con,$sql);
+	   if(mysqli_num_rows($checkindb)==1){
+	
+		   $rows=mysqli_fetch_assoc($checkindb);
+		
+		   $_SESSION['borrowCount']=$rows["borrowCount"];
+		 // echo $_SESSION['borrowCount'];
+	
+		 }
 
 
-					}
+	
+	 if($_SESSION['borrowCount']>=9){
+			$_SESSION['errorforborrowCount']="Can't issue new book:Borrow limit exceeded";
+		if(isset($_SESSION['sid'])){
+			header("Location:insertrec.php");
+		}elseif(isset($_SESSION['tid'])){
+		header("Location:insertrecteacher.php");
 
+	}	
+}else{
+
+
+ 					
 
 
 					if (isset($_SESSION['barcode'])){
@@ -51,7 +75,7 @@ error_reporting(E_ALL);
 								$rowNumBooks=mysqli_fetch_assoc($sql4query);
 								$numBooks= $rowNumBooks["availableBooks"];
 
-								echo $numBooks;
+								// echo $numBooks;
 								
 								if($numBooks==0){
 									$_SESSION['dberror']="No copies of selected book available to issue";
@@ -76,6 +100,7 @@ error_reporting(E_ALL);
 
 
 										$query = "insert into borrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate',0)";
+										$queryBorrowCount ="update student_data set borrowCount=borrowCount+1 where sid=$sid";
 									}elseif(isset($_SESSION['tid'])){
 										$days=$_POST['timeframe'];
 												$date =getdate();
@@ -87,7 +112,8 @@ error_reporting(E_ALL);
 											$duedate=date_format($date1,"Y-m-d");
 										$sid = $_SESSION['tid'];
 										$query = "insert into teacherborrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate',0)";
-
+										$queryBorrowCount ="update student_data set borrowCount=borrowCount+1 where tid=$tid";
+										
 									}
 								// var_dump($query);
 								
@@ -105,7 +131,14 @@ error_reporting(E_ALL);
 
 										}else{
 
-											$_SESSION['issueSucess']="true";
+											$insert=mysqli_query($con,$queryBorrowCount);
+											if(!$insert){
+											$_SESSION['dberror']= "couldnot update borrowCount";
+
+											}else{
+
+												$_SESSION['issueSucess']="true";
+											}
 										}
 									}
 								}catch(Exception $msg){
@@ -117,6 +150,9 @@ error_reporting(E_ALL);
 						}
 										
 					}
-					header("location:".$_SERVER['HTTP_REFERER']);
+				
+			   
 
+					header("location:".$_SERVER['HTTP_REFERER']);
+				}
 ?>

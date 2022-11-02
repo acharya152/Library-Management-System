@@ -7,6 +7,8 @@
 						unset($_SESSION['contact']);
 						unset($_SESSION['year']);
 						unset($_SESSION['department']);
+						unset($_SESSION['borrowCount']);
+
  unset( $_SESSION['bookrecord']);
 						// teacher sessions
 						unset($_SESSION['tid']);
@@ -20,7 +22,7 @@
 						unset($_SESSION['errorMsg']);
 
 						unset($_SESSION['errorMsgfordelete']);
-						
+						$_SESSION['errorforborrowCount'];
 						unset($_SESSION['deleted']);
 
 

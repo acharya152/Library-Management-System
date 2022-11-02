@@ -27,7 +27,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 					
 
 
-				$sql="insert into student_data values('$sid','$sname','$contact','$year','$depart')"; 
+				$sql="insert into student_data values('$sid','$sname','$contact','$year','$depart',0)"; 
 				try{
 				$checkindb=mysqli_query($con,$sql);
 					if(!$checkindb){
