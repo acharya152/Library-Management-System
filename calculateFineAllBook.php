@@ -56,6 +56,6 @@ $_SESSION['removeAll']=true;
 }else{
     $_SESSION['dberror']="* No books available to remove.";
 }
-// header("location:".$_SERVER['HTTP_REFERER']);
+header("location:".$_SERVER['HTTP_REFERER']);
 ?>
 
