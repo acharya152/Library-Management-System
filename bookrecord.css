@@ -218,7 +218,8 @@ height: 100%;
             /* z-index: 3; */
             position: absolute;
             visibility: hidden;
-            top: 25%;
+            top: 37%;
+            left: 25%;
             width: 50%;
             height: 20%;
             color:rgb(179, 10, 10) ;

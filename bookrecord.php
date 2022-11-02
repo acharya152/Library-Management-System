@@ -108,7 +108,7 @@
                         $rows = mysqli_num_rows($result);
 
                     }else{
-                        echo"no books found";
+                        $_SESSION['errorfornobook']=true;
                     }
                 }
             }
@@ -128,8 +128,9 @@
 
 				
  ?>
- 
 
+
+			
 <div id="studentdisplaybox">
 								<div class="namediv">
 								<label>ISBN:</label>
@@ -190,6 +191,7 @@
 			
 </div>
 
+
 <?php 
  }
 }
@@ -210,6 +212,14 @@
 	</div>
 </div>
 </div>
-
+ <div id="displayErrorBox">
+				No such book found in the library. 
+			</div>
+<?php 
+				if(isset($_SESSION['errorfornobook'])){
+					echo "<script src='showErrorBox.js'></script>";
+					unset($_SESSION['errorfornobook']);
+				}
+			?>
 </body>
 </html>
