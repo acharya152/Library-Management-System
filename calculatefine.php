@@ -4,6 +4,8 @@ if(!isset($_SESSION['logged'])){
      header("Location:./loginform.php");
 
  }
+//  unset($_SESSION['Rbarcode']);
+ unset($_SESSION['removeAll']);
         if(isset($_GET['barcode'])){
             $_SESSION['Rbarcode']=$_GET['barcode'];
         }

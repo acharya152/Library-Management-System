@@ -61,7 +61,7 @@
 				<form method="POST" action="bookrecord.php" >
 					
 				
-				<input type="text" name="SearchId" class="inpt1" id="inpts1" placeholder="ENTER BOOK NAME,AUTHOR NAME OR ISBN" required >
+				<input type="text" name="SearchId" class="inpt1" id="inpts1" placeholder="ENTER BOOK NAME OR AUTHOR NAME OR ISBN" required >
 				<input type="submit" value="Search" class="inpt2">
 				<!-- Validate search data and clear session for invalid input -->
 
@@ -117,8 +117,14 @@
 			// var_dump($next);
 			$bname=$next['bname'];
 			$bid=$next['bid'];
-
 			$autname=$next['autname'];
+
+			$sql1="select * from books_inventory where bid=$bid";
+			$query= mysqli_query($con,$sql1);
+
+			$rows1= mysqli_fetch_assoc($query);
+			$totalbook=$rows1["no_totalBooks"];
+			$issuedbook=$rows1["no_issuedBooks"];
 
 				
  ?>
@@ -151,14 +157,14 @@
 								<div class="yeardiv">
 								<label>Total number of books:</label>
 								<?php 
-									// echo($autname);
+									echo($totalbook);
 								?>
 							</div>
 							<br>
 								<div class="yeardiv">
 								<label> Number of books available:</label>
 								<?php 
-									// echo($autname);
+									echo($totalbook-$issuedbook);
 								?>
 							</div>
 				<div  id="issuebutton" onclick="fun3()">
