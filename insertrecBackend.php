@@ -28,13 +28,16 @@
 							
 							// unset($_SESSION['errorMsg']);
 							
-							if(isset($_SESSION['sid'])){
-								$studentid=$_SESSION['sid'];
+							
+							if(isset($_GET['sid'])){
+								$studentid=$_GET['sid'];
 							}
 							else{
 							$studentid=$_POST['SearchId'];
 								
 							}
+								
+							
 							$sql="select * from student_data where sid='".$studentid."'";
 							$checkindb=mysqli_query($con,$sql);
 						  if(mysqli_num_rows($checkindb)==1){

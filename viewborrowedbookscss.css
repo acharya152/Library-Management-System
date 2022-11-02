@@ -155,13 +155,13 @@ img{
 	/* z-index: 3; */
 	position: absolute;
 	visibility: hidden;
-	top: 25%;
-	left: 35%;
+	top: 15%;
+	left: 37%;
 	/*width: 50%;*/
 	/*height: 50%;*/
 	color: indianred;
 	/*color:rgb(179, 10, 10) ;*/
-	font-size: xx-large;
+	font-size: x-large;
 }
 #sucess{
 	color: green;

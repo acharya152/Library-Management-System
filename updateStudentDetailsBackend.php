@@ -25,19 +25,23 @@
 						if(isset($_POST['bname'])){
 
 							
-							// unset($_SESSION['errorMsg']);
-							$studentid=$_SESSION['sid'];
+						
+						var_dump($_POST);	// unset($_SESSION['errorMsg']);
+	$studentid=$_SESSION['sid'];
 
-							$studentname=$_POST['bname'];
-							$studentcontact=$_POST['contact'];
-							$studentdept=$_POST['dept'];
-							$studentyear=$_POST['year'];
+	$studentname=$_POST['bname'];
+	$studentcontact=$_POST['contact'];
+	$dept=$_POST['dept'];
+
+	$studentyear=$_POST['year'];
 
 							// $studentid=$_POST['SearchId'];
-							$sql="UPDATE student_data SET Name='$studentname',Contact=$studentcontact,Year=$studentyear,Depart='$studentdept' WHERE sid =$studentid";
-							$checkindb=mysqli_query($con,$sql);
-						  if(!$checkindb){
-						  		$_SESSION['errorMsg']="*Not Updated.";
+	// $sql="UPDATE student_data SET Name='$studentname',Contact=$studentcontact WHERE sid =$studentid";
+	$sql="UPDATE student_data SET Name='$studentname',Contact=$studentcontact,Year=$studentyear,Depart='$dept' WHERE sid =$studentid";
+	$checkindb=mysqli_query($con,$sql);
+		if(!$checkindb){
+						  		// $_SESSION['errorMsg']="*Not Updated.";
+						echo mysqli_error($con);
 						  	}
 						  			
 							else{
@@ -47,5 +51,5 @@
 					}
 				
 				
-					header("location:insertrecBackend.php");
+					header("location:insertrecBackend.php?sid=$studentid");
  ?> 

@@ -98,7 +98,7 @@
 						<label>Department:</label>
 						<!-- <input type="text" name="dept" id="bname2" required><br> -->
 						<select id="bname2" name="dept" required>
-							<option selected value="<?php echo $_SESSION['department']; ?>" disabled><?php echo $_SESSION['department']; ?></option>
+							<option selected value="<?php echo $_SESSION['department']; ?>" ><?php echo $_SESSION['department']; ?></option>
 							<!-- <option value="" disabled>Choose Department</option> -->
 							<option value="Computer">Computer</option>
 							<option value="IT">IT</option>
@@ -108,7 +108,7 @@
 						<select id="bname2" name="year" required>
 							<!-- <option selected disabled>Choose year and semester</option> -->
 							<!-- <option value="" selected disabled>Choose semester</option> -->
-							<option selected value="<?php echo $_SESSION['year']; ?>" disabled><?php echo $_SESSION['year']; ?> -semester</option>
+							<option selected value="<?php echo $_SESSION['year']; ?>" ><?php echo $_SESSION['year']; ?> -semester</option>
 							<option value=" 1">1st semester</option>
 							<option value=" 2">2nd semester</option>
 							<option value=" 3">3rd semester</option>

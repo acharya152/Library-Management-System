@@ -33,7 +33,7 @@ try{
     echo $renewcount;
 
     if($renewcount>1){           
-        $_SESSION['error']="Renew count exceeded for ".$_SESSION['Rbarcode'];
+        $_SESSION['error']="* Renew count exceeded for ".$_SESSION['Rbarcode'];
     }else{
 
 
