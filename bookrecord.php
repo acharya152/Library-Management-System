@@ -82,13 +82,23 @@
      $db="libraryms";
      $con=mysqli_connect($host,$user,$password,$db);
      if(isset ($_POST['SearchId'])){
-     $_SESSION['bookrecord']=$_POST['SearchId'];}
+     $_SESSION['bookrecord']=$_POST['SearchId'];
+ }
      if(!$con){
      echo "Not connected".mysqli_connect_error();
      }
      else{
-        if(isset($_SESSION['bookrecord'])){            
-            $searchid=$_SESSION['bookrecord'];
+        // if(isset($_POST['SearchId'])){ 
+        if(isset($_POST['SearchId'])){
+       		$searchid=$_POST['SearchId'];
+       	}
+       	elseif(isset($_SESSION['cantdeletemsg']) && isset($_SESSION['bookrecord'])){
+       		$searchid= $_SESSION['bookrecord'];
+       	}elseif(isset($_GET['id'])){
+       		$searchid=$_GET['id'];
+       	}            
+       	if(isset($searchid)){ 
+            // $searchid=$_POST['SearchId'];
             $sql="select * from books_data where bname='$searchid'";
             $result = mysqli_query($con,$sql);
             if(mysqli_num_rows($result)>0){
@@ -130,6 +140,7 @@
 
 
 			
+			
 <div id="studentdisplaybox">
 								<div class="namediv">
 								<label>ISBN:</label>
@@ -169,7 +180,7 @@
 							</div>
 				<div  id="issuebutton" >
 
-					<a  class="issuebtn" href="./bookrecord.php?bid=<?php echo ($bid)?>"  >
+					<a  class="issuebtn" href="./bookrecord.php?id=<?php echo $_SESSION['bookrecord'];?>&bid=<?php echo ($bid)?>"  >
 										<b>Add Books </b>
 									</a>
 				</div>
@@ -212,8 +223,9 @@
 </div>
 </div>
  <div id="displayErrorBox">
-				No such book found in the library. 
+				* No such book found in the library. 
 			</div>
+			
 <?php 
 				if(isset($_SESSION['errorfornobook'])){
 					echo "<script src='showErrorBox.js'></script>";
@@ -224,5 +236,30 @@
 					unset($_SESSION['errorfornobook']);
 				}
 			?>
+			<div id="displaycantdelete"> 
+	* Can't remove book: Some books borrowed.
+			</div>
+
+<?php 
+				if(isset($_SESSION['cantdelete']) || isset($_SESSION['cantdeletemsg'])){
+					echo "<script src='showcantdelete.js'></script>";
+					unset($_SESSION['cantdelete']);
+					unset($_SESSION['cantdeletemsg']);
+
+				}
+			?>
+			<div id="displaysuccess">
+				* Successfully removed from library. 
+			</div>
+			<?php 
+				if(isset($_SESSION['successmsg']) ){
+					// echo "hello";
+					echo "<script src='showdeletesuccess.js'></script>";
+					unset($_SESSION['successmsg']);
+					
+
+				}
+			?>
+
 </body>
 </html>

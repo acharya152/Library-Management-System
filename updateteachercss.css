@@ -27,6 +27,20 @@
   
     
   }
+   #displayErrorBox1{
+   /*background-color: red; */
+  /* z-index: 3; */
+  position: absolute;
+  visibility: hidden;
+  top: 20vh;
+  left: 0.5vw;
+  width: 50%;
+  height: 4%;
+  color:indianred;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+  font-size: large;
+}
   #bid{
     width: 50%;
   

@@ -31,9 +31,19 @@
 
 	$studentname=$_POST['bname'];
 	$studentcontact=$_POST['contact'];
+					$_SESSION['Ccontact']=$studentcontact;
+
 	$dept=$_POST['dept'];
 
 	$studentyear=$_POST['year'];
+
+	include("validatephone.php");
+
+
+
+	if(isset($_SESSION['dberror'])){
+		header("location:updateStudentDetails.php");
+	}else{
 
 							// $studentid=$_POST['SearchId'];
 	// $sql="UPDATE student_data SET Name='$studentname',Contact=$studentcontact WHERE sid =$studentid";
@@ -41,15 +51,16 @@
 	$checkindb=mysqli_query($con,$sql);
 		if(!$checkindb){
 						  		// $_SESSION['errorMsg']="*Not Updated.";
-						echo mysqli_error($con);
+						// echo mysqli_error($con);
 						  	}
 						  			
 							else{
 								$_SESSION['success']="*Updated Successfully.";
 							}
+					header("location:insertrecBackend.php?sid=$studentid");
+
 						}
 					}
+				}
 				
-				
-					header("location:insertrecBackend.php?sid=$studentid");
  ?> 

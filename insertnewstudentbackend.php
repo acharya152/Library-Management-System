@@ -22,9 +22,17 @@ $con=mysqli_connect($host,$user,$password,$db);
 					$sid=$_SESSION['passstudentid'];
 					$sname=$_POST['bname'];
 					$contact=$_POST['contact'];
+					$_SESSION['Ccontact']=$contact;
 					$depart=$_POST['dept'];
 					$year=$_POST['year'];
 					
+					include("validatephone.php");
+
+
+
+	if(isset($_SESSION['dberror'])){
+		header("location:".$_SERVER['HTTP_REFERER']);
+	}else{
 
 
 				$sql="insert into student_data values('$sid','$sname','$contact','$year','$depart',0)"; 
@@ -51,6 +59,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 
 					
 			 }
+			}
 
 
 

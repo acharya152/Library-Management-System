@@ -24,11 +24,19 @@ $con=mysqli_connect($host,$user,$password,$db);
 					$tname=$_POST['bname'];
 
 					$contact=$_POST['contact'];
+					$_SESSION['Ccontact']=$contact;
+
 					$subject=$_POST['sub'];
 					$depart=$_POST['dept'];
 					
 
+					include("validatephone.php");
 
+
+
+	if(isset($_SESSION['dberror'])){
+		header("location:".$_SERVER['HTTP_REFERER']);
+	}else{
 				$sql="insert into teacher_data values('$tid','$tname','$contact','$subject','$depart',0)"; 
 				try{
 				$checkindb=mysqli_query($con,$sql);
@@ -53,7 +61,7 @@ $con=mysqli_connect($host,$user,$password,$db);
 
 					
 			 }
-
+}
 
 
 

@@ -264,6 +264,18 @@ margin-right: 1%;
 	color:yellowgreen;
 	font-size: large;
 }
+#displayErrorBox1{
+   /*background-color: red; */
+  /* z-index: 3; */
+  position: absolute;
+  visibility: hidden;
+  top: 40vh;
+  left: 30vw;
+  width: 20%;
+  height: 4%;
+  color:indianred;
+  font-size: large;
+}
 #register{
 color: yellowgreen;
 display: flex;

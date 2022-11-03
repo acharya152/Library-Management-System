@@ -36,7 +36,6 @@
 
 				}
 
-
  </script>
 
  <link rel="stylesheet" type="text/css" href="insertstudentcss.css">
@@ -152,7 +151,7 @@
 						<!-- <input type="text" name="noofbooks" id="bname2" required><br> -->
 						<!-- <label>Date:</label>
 						<input type="date" name="doinsert" id="date" required><br> -->
-						<input type="Submit" name="Submit" id="sub">
+						<input type="Submit" name="Submit" value="Submit" id="sub" >
 
 					</form>
 				</div>
@@ -188,19 +187,30 @@
 		<div id="displayErrorBox">
 					<?php 
 						
-						if(isset($_SESSION['dberror'])){
-							echo "*".($_SESSION['dberror']);
-						}else{
+						
 							echo "<p id='sucess'>*Student added Sucessfully.</p>";
 
-						}
+						
 				?>
 			</div>
+			<div id="displayErrorBox1">
+					<?php 
+						
+						if(isset($_SESSION['dberror'])){
+							echo "*".($_SESSION['dberror']);
+						}
+						?>
+			</div>
 			<?php 
-				if((isset($_SESSION['dberror'])) || (isset($_SESSION['issueSucess']))){
+				if((isset($_SESSION['issueSucess']))){
 					echo "<script src='showErrorBox.js'></script>";
-					unset($_SESSION['dberror']);
+					// unset($_SESSION['dberror']);
 					unset($_SESSION['issueSucess']);
+				}
+				if((isset($_SESSION['dberror'])) ){
+					echo "<script src='showErrorBox1.js'></script>";
+					unset($_SESSION['dberror']);
+
 				}
 			?>	
 

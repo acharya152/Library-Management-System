@@ -172,22 +172,35 @@
             
         </div>
 		<div id="displayErrorBox">
-					<?php 
+					
 						
-						if(isset($_SESSION['dberror'])){
-						echo "*".($_SESSION['dberror']);
-						}else{
-							echo "<p id='sucess'>*Book added Sucessfully.</p>";
-						}
-				?>
+						
+							<p id='sucess'>*Book added Sucessfully.</p>
+						
+				
 			</div>
 			<?php 
-				if((isset($_SESSION['dberror'])) || (isset($_SESSION['issueSucess']))){
+				if((isset($_SESSION['issueSucess']))){
 					echo "<script src='showErrorBox.js'></script>";
 					unset($_SESSION['dberror']);
 					unset($_SESSION['issueSucess']);
 				}
 			?>	
+				<div id="displayErrorBox2">
+					<?php 
+						
+						
+							echo "<p id='sucess'>*Duplicate book id inserted.</p>";
+						
+				?>
+			</div>
+			<?php 
+				if((isset($_SESSION['errorMsg']))){
+					echo "<script src='showErrorBox2.js'></script>";
+					unset($_SESSION['errorMsg']);
+					
+				}
+			?>
 		</div>
 </body>
 </html>

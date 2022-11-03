@@ -102,7 +102,7 @@
 				}
 
 				function func2(){
-						window.location.href="bookrecord.php";
+						window.location.href="bookrecord.php?id=<?php echo $_SESSION['bookrecord'];?>";
 				}
 				
 	</script>

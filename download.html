@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css">
+  #barcode{
+    box-shadow: 0 0 20px rgba(0,139,253,0.25);
+    width: 300px;
+    margin: 30px 0px 30px 0px;
+  }</style>
+  <script src="barcodescript.js"></script>
+<script>
+  function downloadSVGAsText() {
+  const svg = document.querySelector('svg');
+  const base64doc = btoa(unescape(encodeURIComponent(svg.outerHTML)));
+  const a = document.createElement('a');
+  const e = new MouseEvent('click');
+  a.download = 'yunil.svg';
+  a.href = 'data:image/svg+xml;base64,' + base64doc;
+  a.dispatchEvent(e);
+}
+
+const downloadSVG = document.querySelector('#downloadSVG');
+downloadSVG.addEventListener('click', downloadSVGAsText);
+const downloadPNG = document.querySelector('#downloadPNG');
+downloadPNG.addEventListener('click', downloadSVGAsPNG);
+
+</script>
+</head>
+<body>
+
+<svg id="barcode"  onclick="window.print()"></svg>
+    <script type="text/javascript">
+        JsBarcode("#barcode","1234");
+    </script>
+
+
+
+
+<button id="downloadPNG" onclick="downloadSVGAsPNG()">Download .png</button>
+<button id="downloadSVG" onclick="downloadSVGAsText()">Download .svg</button>
+
+
+
+</body>
+</html>
+
+
+
+
+

@@ -31,10 +31,18 @@
 
 	$name=$_POST['bname'];
 	$contact=$_POST['contact'];
+					$_SESSION['Ccontact']=$contact;
+
 	$dept=$_POST['dept'];
 
 	$subj=$_POST['subj'];
+include("validatephone.php");
 
+
+
+	if(isset($_SESSION['dberror'])){
+		header("location:updateTeachersDetails.php");
+	}else{
 							// $studentid=$_POST['SearchId'];
 	// $sql="UPDATE student_data SET Name='$studentname',Contact=$studentcontact WHERE sid =$studentid";
 	$sql="UPDATE teacher_data SET Name='$name',Contact=$contact,Subject='$subj',Department='$dept' WHERE tid =$tid";
@@ -47,9 +55,10 @@
 							else{
 								$_SESSION['success']="*Updated Successfully.";
 							}
+					header("location:insertrecteacherBackend.php?tid=$tid");
+
 						}
 					}
 				
-				
-					header("location:insertrecteacherBackend.php?tid=$tid");
+				}
  ?> 

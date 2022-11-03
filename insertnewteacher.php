@@ -172,21 +172,31 @@
 		<div id="displayErrorBox">
 					<?php 
 						
-						if(isset($_SESSION['dberror'])){
-							echo "*".($_SESSION['dberror']);
-						}else{
+						
 							echo "<p id='sucess'>*Teacher added Sucessfully.</p>";
 
-						}
+						
 				?>
 			</div>
+			<div id="displayErrorBox1">
+					<?php 
+						
+						if(isset($_SESSION['dberror'])){
+							echo "*".($_SESSION['dberror']);
+						}
+						?>
+			</div>
 			<?php 
-				if((isset($_SESSION['dberror'])) || (isset($_SESSION['issueSucess']))){
+				if((isset($_SESSION['issueSucess']))){
 					echo "<script src='showErrorBox.js'></script>";
-					unset($_SESSION['dberror']);
+					// unset($_SESSION['dberror']);
 					unset($_SESSION['issueSucess']);
 				}
-			?>	
-		</div>
+				if((isset($_SESSION['dberror'])) ){
+					echo "<script src='showErrorBox1.js'></script>";
+					unset($_SESSION['dberror']);
+
+				}
+			?>
 </body>
 </html>

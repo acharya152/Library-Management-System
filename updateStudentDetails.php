@@ -126,6 +126,22 @@
 
 					</form>
 				</div>
+				<div id="displayErrorBox1">
+					<?php 
+						
+						if(isset($_SESSION['dberror'])){
+							echo "*".($_SESSION['dberror']);
+						}
+						?>
+			</div>
+			<?php 
+				
+				if((isset($_SESSION['dberror'])) ){
+					echo "<script src='showErrorBox1.js'></script>";
+					unset($_SESSION['dberror']);
+
+				}
+			?>	
 
 					
 						<!-- <div id="genbtn"><button onclick="fun2()" id="genbar">Generate Barcode</button><br></div> -->
