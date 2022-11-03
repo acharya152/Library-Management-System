@@ -119,7 +119,7 @@ error_reporting(E_ALL);
 											$duedate=date_format($date1,"Y-m-d");
 										$sid = $_SESSION['tid'];
 										$query = "insert into teacherborrowedbook_data values('$sid','$barcode','$datetoday' ,'$duedate',0)";
-										$queryBorrowCount ="update student_data set borrowCount=borrowCount+1 where tid=$sid";
+										$queryBorrowCount ="update teacher_data set borrowCount=borrowCount+1 where tid=$sid";
 										
 									}
 								// var_dump($query);
