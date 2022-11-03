@@ -219,7 +219,7 @@
 ?>
 <div id="removeall">
 		<form method="POST" action="addbooks.php?bid=<?php echo $addbid?>" >
-		<input type="text" name="numbooks" id="getnum" placeholder="Enter number of books"><br>
+		<input type="number" name="numbooks" id="getnum" placeholder="Enter number of books"><br>
 		<button id="btn1" type="submit" >Add</button>
 		<!-- <input type="submit" name="" value="Add" id="btn1"> -->
 		</form>
