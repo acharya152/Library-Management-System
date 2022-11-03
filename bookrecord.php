@@ -6,7 +6,9 @@
  	}
 	// include("unsetBookSessions.php");
 	// unset($_SESSION['tid']);
- 	
+ 	if(isset($_GET['bid'])){
+		$addbid = $_GET['bid'];
+	}
 	
  ?>
  <!DOCTYPE html>
@@ -19,9 +21,6 @@
 	<!-- to set focus on searchpanel despite clicking anywhere on the screen -->
 		<script type="text/javascript">
 				
-				function fun3(){
-						document.getElementById('removeall').style.visibility='visible';
-				}
 				
 
 
@@ -168,9 +167,9 @@
 									echo($totalbook-$issuedbook);
 								?>
 							</div>
-				<div  id="issuebutton" onclick="fun3()">
+				<div  id="issuebutton" >
 
-					<a  class="issuebtn" >
+					<a  class="issuebtn" href="./bookrecord.php?bid=<?php echo ($bid)?>"  >
 										<b>Add Books </b>
 									</a>
 				</div>
@@ -204,7 +203,7 @@
         
 ?>
 <div id="removeall">
-		<form method="POST" action="addbooks.php">
+		<form method="POST" action="addbooks.php?bid=<?php echo $addbid?>" >
 		<input type="text" name="numbooks" id="getnum" placeholder="Enter number of books"><br>
 		<button id="btn1" type="submit" >Add</button>
 		<!-- <input type="submit" name="" value="Add" id="btn1"> -->
@@ -218,6 +217,10 @@
 <?php 
 				if(isset($_SESSION['errorfornobook'])){
 					echo "<script src='showErrorBox.js'></script>";
+					unset($_SESSION['errorfornobook']);
+				}
+				if(isset($_GET['bid'])){
+					echo "<script src='showplaceholder.js'></script>";
 					unset($_SESSION['errorfornobook']);
 				}
 			?>

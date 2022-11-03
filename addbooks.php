@@ -18,8 +18,8 @@
 
     
         //getting bid from url
-        // $bid=$_GET['bid'];
-        $bid=1001;
+        $bid=$_GET['bid'];
+        // $bid=1001;
 
 
         //getting books data from bid
@@ -79,7 +79,7 @@ $error='';
         }
 
 
-        header("location:".$_SERVER['HTTP_REFERER']);
+        // header("location:".$_SERVER['HTTP_REFERER']);
 ?>
 </div>
 
