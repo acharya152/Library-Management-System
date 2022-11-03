@@ -75,6 +75,9 @@
 					</script>
 			</div>
 
+<div id="displayErrorBoxforBorrowCount">
+				*<?php echo($_SESSION['errorforborrowCount']);?>
+		</div>
 			<div id="displayErrorBox">
 				*Please enter a valid TeacherID
 			</div>
@@ -88,6 +91,27 @@
 			<div id="displayErrorBoxforremoveddata">
 				*Teacher removed successfully.
 			</div>
+			<div id="success">
+				*Updated details successfully.
+			</div>
+			
+				<?php 
+				if(isset($_SESSION['success'])){
+
+					echo "<script src='showsuccessbox.js'></script>";
+					unset($_SESSION['success']);
+					// include("unsetTeacherStudentSessions.php");
+				}
+			?>
+
+<?php 
+				if(isset($_SESSION['errorforborrowCount'])){
+					echo "<script src='showerrorboxforborrowCount.js'></script>";
+					unset($_SESSION['errorforborrowCount']);
+
+					// include("unsetTeacherStudentSessions.php");
+				}
+			?>
 
 			<?php 
 				if(isset($_SESSION['deleted'])){
@@ -156,7 +180,28 @@
 ;
 							} ?>
 							</div>
+							<div class="borrowdiv">
+							<label>Borrow Count:</label>
+							<label id="borrowCount">
+
+								<?php if(isset($_SESSION['borrowCount'])){
+									
+									echo $_SESSION['borrowCount'];
+									if($_SESSION['borrowCount']==9){
+										echo "<script src='showcolor.js'></script>";
+										
+									}
+								} ?>
+							</label>
+							</div>
 				<br>
+			</div>
+			<div id="changebutton">
+				
+						<a href="./updateTeachersDetails.php" class="viewbtn">
+				<!-- <a href="./borrowedbook.php" class="viewbtn"> -->
+									<b>Update Details<b>
+								</a>
 			</div>
 
 

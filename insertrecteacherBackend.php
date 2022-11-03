@@ -40,6 +40,8 @@
 						  	$_SESSION['contact']=$rows["Contact"];
 						  	$_SESSION['Subject']=$rows["Subject"];
 						  	$_SESSION['department']=$rows["Department"];
+						  	$_SESSION['borrowCount']=$rows["borrowCount"];
+						  	// echo $_SESSION['borrowCount'];
 							}
 							else{
 								$_SESSION['errorMsg']="true";

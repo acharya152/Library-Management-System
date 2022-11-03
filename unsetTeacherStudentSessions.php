@@ -22,7 +22,7 @@
 						unset($_SESSION['errorMsg']);
 
 						unset($_SESSION['errorMsgfordelete']);
-						$_SESSION['errorforborrowCount'];
+					unset(	$_SESSION['errorforborrowCount']);
 						unset($_SESSION['deleted']);
 
 

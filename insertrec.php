@@ -180,7 +180,7 @@
 ;
 							} ?>
 							</div>
-							<div class="deptdiv">
+							<div class="borrowdiv">
 							<label>Borrow Count:</label>
 							<label id="borrowCount">
 
