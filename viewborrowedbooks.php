@@ -240,7 +240,12 @@ while($rows=mysqli_fetch_assoc($result2)){
 					
 
 					$datet =getdate();
-					$datetoday = $datet['year']."-".$datet['mon']."-".$datet['mday'];
+					if($datet['mday']<10){
+						$datetoday = $datet['year']."-".$datet['mon']."-0".$datet['mday'];
+						}else{
+						$datetoday = $datet['year']."-".$datet['mon']."-".$datet['mday'];
+													
+						}
 					
 					
 

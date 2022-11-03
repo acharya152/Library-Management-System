@@ -22,8 +22,8 @@
 					echo "Not connected".mysqli_connect_error();
 					}
 					else{
-						if(isset($_GET['sid'])){
-							$studentid=$_GET['sid'];
+						if(isset($_GET['tid'])){
+							$studentid=$_GET['tid'];
 						}
 						else{
 						$studentid=$_POST['SearchId'];
@@ -47,5 +47,5 @@
 						}
 					
 				
-					header("location:".$_SERVER['HTTP_REFERER']);
+					header("location:insertrecteacher.php");
  ?> 

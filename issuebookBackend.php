@@ -20,8 +20,15 @@ error_reporting(E_ALL);
 
 		}
 
-		 $studentid=$_SESSION['sid'];
-		 $sql="select * from student_data where sid='".$studentid."'";
+		 if(isset($_SESSION['sid'])){
+			$studentid=$_SESSION['sid'];
+			$sql="select * from student_data where sid='".$studentid."'";
+
+		 }else{
+			$studentid=$_SESSION['tid'];
+			$sql="select * from teacher_data where tid='".$studentid."'";
+
+		 }
 		 $checkindb=mysqli_query($con,$sql);
 	   if(mysqli_num_rows($checkindb)==1){
 	
@@ -120,18 +127,23 @@ error_reporting(E_ALL);
 								try{
 
 									$result = mysqli_query($con,$query);
+									echo$result;
 									if(!$result){
 										throw new Exception(mysqli_error($con));
 									}
 									else{
 										$sql4="update books_inventory set no_issuedBooks=no_issuedBooks+1 where bid=$bid ";
 										$query = mysqli_query($con,$sql4);
+										
+										echo $query;
+
 										if(!$query){
 											$_SESSION['dberror']= "couldnot update inventory";
 
 										}else{
 
 											$insert=mysqli_query($con,$queryBorrowCount);
+											echo $insert;
 											if(!$insert){
 											$_SESSION['dberror']= "couldnot update borrowCount";
 
@@ -153,6 +165,6 @@ error_reporting(E_ALL);
 				
 			   
 
-					header("location:".$_SERVER['HTTP_REFERER']);
+					// header("location:".$_SERVER['HTTP_REFERER']);
 				}
 ?>
