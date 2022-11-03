@@ -9,6 +9,10 @@
  	if(isset($_GET['bid'])){
 		$addbid = $_GET['bid'];
 	}
+	if(isset($_GET['bid1'])){
+		$removebid = $_GET['bid1'];
+	}
+	
 	
  ?>
  <!DOCTYPE html>
@@ -249,7 +253,7 @@
 				}
 			?>
 			<div id="displaysuccess">
-				* Successfully removed from library. 
+				*<?php echo $removebid?> Successfully removed from library. 
 			</div>
 			<?php 
 				if(isset($_SESSION['successmsg']) ){

@@ -64,7 +64,9 @@ $error='';
                     // JsBarcode("#barcode", text); 
                     echo('<svg id="'.$svgID.'"  onclick="'.'window.print()"></svg>');
                     // echo $barcode;
-                    echo ('<script> JsBarcode("#'.$svgID.'",'.$barcode.');</script>');
+                    // echo ('<script> JsBarcode("#'.$svgID.'",'.$barcode.');</script>');
+								echo ('<script> JsBarcode("#'.$svgID.'","'.$barcode.'");</script>');
+
                 }else{
                     $error = true;
                     break;

@@ -4,7 +4,7 @@
  		header("Location:./loginform.php");
 
  	}
-	// include("unsetBookSessions.php");
+	include("unsetBookSessions.php");
 	// unset($_SESSION['tid']);
  	
 	

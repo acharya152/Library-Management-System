@@ -5,7 +5,6 @@ session_start();
 
  	}
 
-	$_SESSION['confirm']="true";
 
 					$host="localhost";
 					$user="root";
@@ -42,6 +41,7 @@ session_start();
 									throw new Exception(mysqli_error($con));
 								}
 								else{
+										// $_SESSION['confirm']="true";
 										$_SESSION['deleted']="true";
 									}
 

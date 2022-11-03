@@ -195,9 +195,9 @@
 				?>
 			</div>
 			<?php 
-				if((isset($_SESSION['errorMsg']))){
+				if((isset($_SESSION['dberror']))){
 					echo "<script src='showErrorBox2.js'></script>";
-					unset($_SESSION['errorMsg']);
+					unset($_SESSION['dberror']);
 					
 				}
 			?>

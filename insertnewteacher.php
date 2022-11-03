@@ -97,7 +97,7 @@
 						  $value=$rows['max(tid)'];
 
 						  if($value==0){
-						  $studentid=($value)+8000;
+						  $studentid=($value)+1000;
 
 						  }else{
 						  $studentid=($value)+1;

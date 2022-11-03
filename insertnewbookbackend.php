@@ -23,16 +23,19 @@ $con=mysqli_connect($host,$user,$password,$db);
 					$bname=$_POST['bname'];
 					$authname=$_POST['autname'];
 					$no=$_POST['noofbooks'];
-				$sql="insert into books_data values('$bid','$bname','$authname')"; 
-				$sql2 = "insert into books_inventory values('$bid','$no',0)";
+				$sql="insert into books_data values('".$bid."','$bname','$authname')"; 
+				$sql2 = "insert into books_inventory values('".$bid."','$no',0)";
 
 
 				
 				
 				try{
 				$checkindb=mysqli_query($con,$sql);
+				// echo $checkindb;
 					if(!$checkindb){
-						$_SESSION['errorMsg']="true";
+						// $_SESSION['errorMsg']="true";
+					// echo $_SESSION['errorMsg'];
+
 						throw new Exception(mysqli_error($con));
 					
 					}else{
@@ -43,6 +46,9 @@ $con=mysqli_connect($host,$user,$password,$db);
 				}
 				catch(Exception $e){
 					$_SESSION['dberror']= $e->getMessage();
+					// echo $_SESSION['dberror'];
+					// echo $_SESSION['errorMsg'];
+
 					header("location:".$_SERVER['HTTP_REFERER']);
 					
 				}	
@@ -83,14 +89,16 @@ $con=mysqli_connect($host,$user,$password,$db);
 
 	$barcode = $bid.$i;
 	$svgID = "dispBar".$i;
+	// $sql3 = "insert into books_barcode values('$bid','".$barcode."')";
 	$sql3 = "insert into books_barcode values('$bid','$barcode')";
+
 	$checkindb=mysqli_query($con,$sql3);
 	// JsBarcode("#barcode", text);
 
 								echo('<svg id="'.$svgID.'"  onclick="'.'window.print()"></svg>');
 
 								// echo $barcode;
-								echo ('<script> JsBarcode("#'.$svgID.'",'.$barcode.');</script>');
+								echo ('<script> JsBarcode("#'.$svgID.'","'.$barcode.'");</script>');
 										
 							}
 	}
