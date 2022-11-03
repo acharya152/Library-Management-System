@@ -26,6 +26,8 @@ $con=mysqli_connect($host,$user,$password,$db);
 					$depart=$_POST['dept'];
 					$year=$_POST['year'];
 					
+
+					$filename=$sname."_".$contact."_".$sid;
 					include("validatephone.php");
 
 
@@ -82,10 +84,25 @@ $con=mysqli_connect($host,$user,$password,$db);
   }
 </style>
 	</head>
+	<script>
+
+	function downloadSVGAsText() {
+
+const svg = document.querySelector('svg');
+// const b = btoa(decodeURI(encodeURIComponent(svg.outerHTML)));
+const b = btoa(svg.outerHTML);
+
+const a = document.createElement('a');
+const e = new MouseEvent('click');
+a.download = 'yunil.svg';
+a.href = 'data:image/svg+xml;base64,' + b;
+a.dispatchEvent(e);
+}
+</script>
 
 	<body>
 	<div class="print-area">
-	 <svg id="barcode"  onclick="window.print()"></svg>
+	 <svg id="barcode"  onclick="downloadSVGAsText();window.print()"></svg>
 		<script type="text/javascript">
 				JsBarcode("#barcode","<?php echo("$sid") ?>");
 		</script>

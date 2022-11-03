@@ -189,7 +189,7 @@
 			<?php 
 				if((isset($_SESSION['issueSucess']))){
 					echo "<script src='showErrorBox.js'></script>";
-					// unset($_SESSION['dberror']);
+					unset($_SESSION['dberror']);
 					unset($_SESSION['issueSucess']);
 				}
 				if((isset($_SESSION['dberror'])) ){
