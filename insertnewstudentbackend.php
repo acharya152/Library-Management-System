@@ -27,7 +27,10 @@ $con=mysqli_connect($host,$user,$password,$db);
 					$year=$_POST['year'];
 					
 
-					$filename=$sname."_".$contact."_".$sid;
+					$filename=$sname."_".$contact."_".$sid.".svg";
+					$saveAs=str_replace(' ', '', $filename);
+					
+					// echo $saveAs;
 					include("validatephone.php");
 
 
@@ -94,11 +97,12 @@ const b = btoa(svg.outerHTML);
 
 const a = document.createElement('a');
 const e = new MouseEvent('click');
-a.download = 'yunil.svg';
+a.download = '<?php echo $saveAs; ?>';
 a.href = 'data:image/svg+xml;base64,' + b;
 a.dispatchEvent(e);
 }
 </script>
+
 
 	<body>
 	<div class="print-area">
@@ -107,7 +111,7 @@ a.dispatchEvent(e);
 				JsBarcode("#barcode","<?php echo("$sid") ?>");
 		</script>
 
-		<p><b>CLICK ON THE BARCODE TO PRINT IT!!</b></p>							
+		<p><b>CLICK ON THE BARCODE TO SAVE AND PRINT IT!!</b></p>							
 
 								   
 								      

@@ -29,7 +29,9 @@ $con=mysqli_connect($host,$user,$password,$db);
 					$subject=$_POST['sub'];
 					$depart=$_POST['dept'];
 					
-
+					$filename=$tname."_".$contact."_".$tid.".svg";
+					$saveAs=str_replace(' ', '', $filename);
+					
 					include("validatephone.php");
 
 
@@ -83,15 +85,31 @@ $con=mysqli_connect($host,$user,$password,$db);
   }
 </style>
 	</head>
+	<script>
+
+function downloadSVGAsText() {
+
+const svg = document.querySelector('svg');
+// const b = btoa(decodeURI(encodeURIComponent(svg.outerHTML)));
+const b = btoa(svg.outerHTML);
+
+const a = document.createElement('a');
+const e = new MouseEvent('click');
+a.download = '<?php echo $saveAs; ?>';
+a.href = 'data:image/svg+xml;base64,' + b;
+a.dispatchEvent(e);
+}
+</script>
 
 	<body>
 	<div class="print-area">
-	 <svg id="barcode"  onclick="window.print()"></svg>
+	 <svg id="barcode"  onclick="downloadSVGAsText();window.print()"></svg>
 		<script type="text/javascript">
 				JsBarcode("#barcode",<?php echo("$tid") ?>);
 		</script>
 
-		<p><b>CLICK ON THE BARCODE TO PRINT IT!!</b></p>							
+<p><b>CLICK ON THE BARCODE TO SAVE AND PRINT IT!!</b></p>							
+						
 
 								   
 								      
