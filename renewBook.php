@@ -5,9 +5,9 @@
 
     }
     // $_SESSION['confirm']=true;
-    //  if(isset($_GET['barcode'])){
-    //     $_SESSION['Rbarcode']=$_GET['barcode'];
-    // }
+     if(isset($_GET['barcode'])){
+        $_SESSION['Rbarcode']=$_GET['barcode'];
+    }
 
 $host="localhost";
 $user="root";
@@ -21,17 +21,20 @@ if(isset($_SESSION['sid'])){
 }elseif(isset($_SESSION['tid'])){
   $sql = 'select * from teacherborrowedbook_data where barcode="'.$_SESSION['Rbarcode'].'"';
 }
+echo $sql;
 try{
 
     $result = mysqli_query($con,$sql);
+    // echo $result;
     if(!$result){
         throw new Exception(mysqli_error($con));
+        die;
     }
     $rows=mysqli_fetch_assoc($result);
     
     $due=$rows["duedate"];
     $renewcount = $rows["renewCount"];
-    echo $renewcount;
+    echo "Renew". $renewcount;
 
     if($renewcount>1){           
         $_SESSION['error']="* Renew count exceeded for ".$_SESSION['Rbarcode'];

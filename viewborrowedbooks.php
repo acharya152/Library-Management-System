@@ -4,6 +4,9 @@
  		header("Location:./loginform.php");
 
  	}
+	 if(!((isset($_SESSION['sid'])) ||  (isset($_SESSION['tid'])))){
+		header("Location:dashboard.php");
+	}
 
 
 $host="localhost";

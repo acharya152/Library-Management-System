@@ -8,6 +8,9 @@ error_reporting(E_ALL);
  	if(!isset($_SESSION['logged'])){
  		header("Location:./loginform.php");
  	}
+	 if(!((isset($_SESSION['sid'])) ||  (isset($_SESSION['tid'])))){
+		header("Location:dashboard.php");
+	}
 	 $host="localhost";
 	 $user="root";
 	 $password="";
