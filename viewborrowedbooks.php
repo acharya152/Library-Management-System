@@ -113,15 +113,17 @@ $db="libraryms";
 					$barcode = $rows["barcode"];
 					// echo ($barcode);
 					$duedate=$rows["duedate"];
+					$renew=$rows["renewCount"];
 
+//hello
 					
 
 					$datet =getdate();
-					if($datet['mday']<10){
-					$datetoday = $datet['year']."-".$datet['mon']."-0".$datet['mday'];
+					if($datet['mday']<10 ||$datet['mon']<10  ){
+					$datetoday = $datet['year']."-0".$datet['mon']."-0".$datet['mday'];
 					}else{
 					$datetoday = $datet['year']."-".$datet['mon']."-".$datet['mday'];
-												
+											
 					}
 					// $datetoday = "2022-10-12";
 					// echo $datetoday;
@@ -129,7 +131,6 @@ $db="libraryms";
 					// echo $duedate;
 					// var_dump($datetoday);
    // var_dump($duedate);
-					
 					
 
 					if($datetoday>$duedate){
@@ -197,6 +198,14 @@ $db="libraryms";
 							 ?>
 							
 							</div>
+							<div id="yeardiv3">
+							<label>Renew Count:</label>
+							<?php 
+								echo($renew);
+								
+							 ?>
+							
+							</div>
 			<div  id="issuebutton">
 
 				<a href="./confirmrenew.php?barcode=<?php echo($barcode)?>" class="issuebtn" >
@@ -239,6 +248,8 @@ $db="libraryms";
 while($rows=mysqli_fetch_assoc($result2)){
 					$barcode = $rows["barcode"];
 					$duedate=$rows["duedate"];
+					$renew=$rows["renewCount"];
+
 
 					
 
@@ -311,6 +322,14 @@ while($rows=mysqli_fetch_assoc($result2)){
 							<label>Due date:</label>
 							<?php 
 								echo($duedate);
+							 ?>
+							
+							</div>
+							<div id="yeardiv3">
+							<label>Renew Count:</label>
+							<?php 
+								echo($renew);
+								
 							 ?>
 							
 							</div>
